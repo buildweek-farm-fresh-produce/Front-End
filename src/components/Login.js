@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 function Login() {
   return (
     <div className="login">
-      <h1>Login Form</h1>
+      <h2>Login Form</h2>
     </div>
   );
 }
