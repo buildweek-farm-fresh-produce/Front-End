@@ -1,8 +1,25 @@
 .App {
   text-align: center;
+  background-image: url(./img/background2.png);
+  min-height: 800px;
 }
 
 .header {
-  background: #aaa;
   height: 250px;
+  .title {
+    color: #ff5757;
+    border: 5px solid #cbc1c7;
+    width: 500px;
+    margin: 0px auto;
+    background: white;
+    display: flex;
+    justify-content: center;
+    img {
+      width: 50px;
+      margin: 0px 15px;
+    }
+  }
+}
+
+.login {
 }
