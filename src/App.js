@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import Header from "./components/Header.js";
 import Main from "./components/Main.js";
 import Login from "./components/Login.js";
+import Register from "./components/Register.js";
 import { Route, Switch } from "react-router-dom";
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
         <Switch>
           <Route exact path="/" component={Main} />
           <Route exact path="/login" component={Login} />
+          <Route exact path="/register" component={Register} />
         </Switch>
       </div>
     </div>

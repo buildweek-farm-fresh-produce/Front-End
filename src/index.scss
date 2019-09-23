@@ -1,9 +1,17 @@
+//less than 1.8rem
+$smallText: #778855;
+// large non bold black text (18pt or greater)
+$largeText: #99aa77;
+//Medium black Bold Text (14pt or higher)
+$mediumBoldText: #556677;
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Playfair Display", serif,
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-size: 62.5%;
 }
 
 code {
@@ -12,9 +20,23 @@ code {
 }
 h1 {
   font-family: "Mansalva", cursive;
+  font-size: 2.7rem;
+  color: $smallText;
 }
 
 h2,
 h3 {
+  font-family: "Playfair Display", serif;
+  font-size: 1.8rem;
+}
+
+p {
   font-family: "Big Shoulders Text", cursive;
+  font-size: 1.4rem;
+}
+
+a {
+  text-decoration: none;
+  font-size: 1.6rem;
+  color: black;
 }

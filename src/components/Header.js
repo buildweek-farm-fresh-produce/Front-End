@@ -13,9 +13,16 @@ function Header() {
         <h1>Farm Fresh Produce</h1>
         <img src={tomato} alt="Tomato" className="tomato" />
       </div>
-      <div className="login">
-        <Link to="/">Home</Link>
-        <Link to="/login">Login</Link>
+      <div className="navBar">
+        <Link to="/" className="link">
+          Home
+        </Link>
+        <Link to="/login" className="link">
+          Login
+        </Link>
+        <Link to="/register" className="link">
+          Register
+        </Link>
       </div>
     </div>
   );
