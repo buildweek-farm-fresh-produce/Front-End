@@ -44,7 +44,8 @@ const Register = props => {
       </div>
     </div>
   );
-};
+}
+
 const mapStateToProps = state => {
   return {
     credentials: state.credentials,
