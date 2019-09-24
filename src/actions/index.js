@@ -8,11 +8,11 @@ export const FARMER_CHANGE = "FARMER_CHANGE";
 
 export const login = state => dispatch => {
   dispatch({ type: LOGIN_START });
+  // console.log("LOGINCRED", state);
   // axiosWithAuth()
-  //   .post("/login", state.credentials)
+  //   .post("/api/auth/shop/login", state)
   //   .then(res => {
   //     // console.log("LoginRES", res.data);
-
   //     dispatch({ type: LOGIN_SUCCESS, payload: res.data });
   //   })
   //   .catch(err => {
@@ -33,7 +33,8 @@ export const handleChange = e => dispatch => {
   dispatch({
     type: HANDLE_CHANGE,
     payload: {
-      [e.target.name]: e.target.value
+      name: e.target.name,
+      value: e.target.value
     }
   });
 };
