@@ -3,10 +3,10 @@ import "../App.scss";
 import { connect } from "react-redux";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Loader from "react-loader-spinner";
-import { login, handleChange } from "../actions";
+import { login, handleChange, farmerAC } from "../actions";
 
 const Login = props => {
-  //   console.log("Login", props);
+  console.log("Login", props);
   const hc = e => {
     props.handleChange(e);
   };
@@ -15,6 +15,11 @@ const Login = props => {
     e.preventDefault();
     props.login(e);
   };
+
+  const farmerRadio = e => {
+    props.farmerAC(e);
+  };
+
   return (
     <div>
       <form onSubmit={li} className="loginForm">
@@ -33,7 +38,30 @@ const Login = props => {
           value={props.credentials.password}
           onChange={e => hc(e)}
         />
-        <button className="loginButton">Log in</button>
+        <div className="radio">
+          <div>
+            <label htmlFor="farmer">Customer: </label>
+            <input
+              type="radio"
+              name="farmer"
+              value="false"
+              checked={!props.farmer}
+              onChange={farmerRadio}
+            />
+          </div>
+          <div>
+            <label htmlFor="farmer">Farmer: </label>
+            <input
+              type="radio"
+              name="farmer"
+              value="true"
+              checked={props.farmer}
+              onChange={farmerRadio}
+            />
+          </div>
+        </div>
+
+        <button className="loginButton">Log In</button>
       </form>
       <div className="loading">
         {props.isLoading && (
@@ -49,11 +77,12 @@ const Login = props => {
 const mapStateToProps = state => {
   return {
     credentials: state.credentials,
-    authLoading: state.authLoading
+    authLoading: state.authLoading,
+    farmer: state.farmer
   };
 };
 
 export default connect(
   mapStateToProps,
-  { login, handleChange }
+  { login, handleChange, farmerAC }
 )(Login);

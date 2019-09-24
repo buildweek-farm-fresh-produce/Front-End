@@ -2,11 +2,13 @@ import {
   LOGIN_START,
   LOGIN_SUCCESS,
   LOGIN_FAIL,
-  HANDLE_CHANGE
+  HANDLE_CHANGE,
+  FARMER_CHANGE
 } from "../actions";
 
 const initialState = {
   authLoading: false,
+  farmer: false,
   credentials: {
     username: "",
     password: ""
@@ -32,6 +34,12 @@ export const reducer = (state = initialState, action) => {
       return {
         ...state,
         credentials: { [action.payload.name]: action.payload.value }
+      };
+    case FARMER_CHANGE:
+      console.log("Make it", action.payload);
+      return {
+        ...state,
+        farmer: Boolean(action.payload)
       };
     default:
       return state;
