@@ -6,13 +6,13 @@ import {
   FARMER_CHANGE
 } from "../actions";
 import { combineReducers } from "redux";
-import { connectRouter } from "connected-react-router";
+// import { connectRouter } from "connected-react-router";
 
-export const createRootReducer = history =>
-  combineReducers({
-    router: connectRouter(history),
-    reducer
-  });
+// export const createRootReducer = history =>
+//   combineReducers({
+//     router: connectRouter(history),
+//     reducer
+//   });
 
 const initialState = {
   authLoading: false,

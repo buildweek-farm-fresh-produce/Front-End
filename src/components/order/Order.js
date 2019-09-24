@@ -1,5 +1,5 @@
 import React from "react";
-import "../App.scss";
+import "../../App.scss";
 import { connect } from "react-redux";
 
 const Order = props => {
@@ -8,13 +8,13 @@ const Order = props => {
     <div className="orderCard">
       {props.orders.map(item => {
         return (
-          <a href={`/dasboard/${item.id}`}>
-            <div className="orderPrev">
-              <p>item.purchase_date</p>
-              <p>item.delivered</p>
-              <p>item.consumer_id</p>
-            </div>
-          </a>
+          <div className="orderPrev">
+            <a href={`/dashboard/${item.id}`} className="list">
+              <p>{item.purchase_date}</p>
+              <p>{item.delivered}</p>
+              <p>{item.consumer_id}</p>
+            </a>
+          </div>
         );
       })}
     </div>
