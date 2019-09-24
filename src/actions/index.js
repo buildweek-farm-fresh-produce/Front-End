@@ -6,22 +6,21 @@ export const LOGIN_FAIL = "LOGIN_FAIL";
 export const SYCH_CALL = "SYCH_CALL";
 export const HANDLE_CHANGE = "HANDLE_CHANGE";
 
-export const login = e => dispatch => {
+export const login = state => dispatch => {
   dispatch({ type: LOGIN_START, payload: "Please Wait" });
-  e.preventDefault();
-  // state.authLoading(true);
-  // axiosWithAuth()
-  //   .post("/login", credentials)
-  //   .then(res => {
-  //     //   console.log("RES", res.data);
-  //     dispatch({ type: LOGIN_SUCCESS, payload: res.data });
-  //   })
-  //   .catch(err => {
-  //     dispatch({
-  //       type: LOGIN_FAIL,
-  //       payload: err
-  //     });
-  //   });
+  state.authLoading(true);
+  axiosWithAuth()
+    .post("/login", state.credentials)
+    .then(res => {
+      //   console.log("RES", res.data);
+      dispatch({ type: LOGIN_SUCCESS, payload: res.data });
+    })
+    .catch(err => {
+      dispatch({
+        type: LOGIN_FAIL,
+        payload: err
+      });
+    });
 };
 
 // export const getStuff = () => dispatch => {
@@ -45,10 +44,11 @@ export const synchCall = stuff => {
 };
 
 export const handleChange = e => dispatch => {
-  return {
+  console.log("HC", e.target.name, e.target.value);
+  dispatch({
     type: HANDLE_CHANGE,
     payload: {
       [e.target.name]: e.target.value
     }
-  };
+  });
 };

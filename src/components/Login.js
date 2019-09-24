@@ -7,7 +7,9 @@ import { login, handleChange } from "../actions";
 
 const Login = props => {
   //   console.log("Login", props);
-
+  const hc = e => {
+    props.handleChange(e);
+  };
   return (
     <div>
       <form onSubmit={login} className="loginForm">
@@ -16,13 +18,13 @@ const Login = props => {
           type="text"
           name="username"
           value={props.credentials.username}
-          onChange={handleChange}
+          onChange={e => hc(e)}
         />
         <input
           type="password"
           name="password"
           value={props.credentials.password}
-          onChange={handleChange}
+          onChange={e => hc(e)}
         />
         <button className="loginButton">Log in</button>
       </form>

@@ -49,7 +49,7 @@ $background: rgba(153, 170, 119, 1);
   background: white;
   border: 5px solid $border;
   width: 400px;
-  min-height: 400px;
+  min-height: 260px;
   border-radius: 10px;
   h2 {
     margin: 0px;
@@ -61,8 +61,15 @@ $background: rgba(153, 170, 119, 1);
     font-size: 1.7rem;
   }
   .loginButton {
-    height: 75px;
+    height: 55px;
+    width: 125px;
     background: $background;
     color: white;
+    border-radius: 25px;
+    line-height: 55px;
+    font-size: 1.8rem;
+    border: 3px solid $border;
+    border-radius: 25px;
+    box-shadow: 2px 2px 3px #000;
   }
 }

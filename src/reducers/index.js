@@ -14,7 +14,7 @@ const initialState = {
 };
 
 export const reducer = (state = initialState, action) => {
-  console.log("ACTION", action.type);
+  console.log("ACTION", action);
   switch (action.type) {
     case LOGIN_START:
       return state;
@@ -23,7 +23,11 @@ export const reducer = (state = initialState, action) => {
     case LOGIN_FAIL:
       return state;
     case HANDLE_CHANGE:
-      return state;
+      console.log("CHANGE", action);
+      return {
+        ...state,
+        credentials: { [action.payload.name]: action.payload.value }
+      };
     default:
       return state;
   }
