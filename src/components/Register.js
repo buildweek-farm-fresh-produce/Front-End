@@ -1,11 +1,11 @@
 import React from "react";
 import "../App.scss";
 import { connect } from "react-redux";
-import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
-import Loader from "react-loader-spinner";
+// import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+// import Loader from "react-loader-spinner";
 
 const Register = props => {
-  //   console.log("Register", props);
+  //console.log("Register", props);
   const hc = e => {
     props.handleChange(e);
   };
@@ -38,7 +38,7 @@ const Register = props => {
         {props.isLoading && (
           <>
             <h2>Loading...</h2>
-            <Loader type="Rings" color="red" height={80} width={80} />
+            {/* <Loader type="Rings" color="red" height={80} width={80} /> */}
           </>
         )}
       </div>
@@ -47,6 +47,7 @@ const Register = props => {
 };
 const mapStateToProps = state => {
   return {
+    credentials: state.credentials,
     register: state.register
   };
 };
