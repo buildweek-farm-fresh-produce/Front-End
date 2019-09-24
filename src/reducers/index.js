@@ -10,6 +10,10 @@ const initialState = {
   credentials: {
     username: "",
     password: ""
+  },
+  register: {
+    username: "",
+    password: ""
   }
 };
 
@@ -17,6 +21,7 @@ export const reducer = (state = initialState, action) => {
   console.log("ACTION", action);
   switch (action.type) {
     case LOGIN_START:
+      console.log("LOGIN START");
       return state;
     case LOGIN_SUCCESS:
       return state;

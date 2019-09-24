@@ -8,19 +8,19 @@ export const HANDLE_CHANGE = "HANDLE_CHANGE";
 
 export const login = state => dispatch => {
   dispatch({ type: LOGIN_START, payload: "Please Wait" });
-  state.authLoading(true);
-  axiosWithAuth()
-    .post("/login", state.credentials)
-    .then(res => {
-      //   console.log("RES", res.data);
-      dispatch({ type: LOGIN_SUCCESS, payload: res.data });
-    })
-    .catch(err => {
-      dispatch({
-        type: LOGIN_FAIL,
-        payload: err
-      });
-    });
+  // state.authLoading(true);
+  // axiosWithAuth()
+  //   .post("/login", state.credentials)
+  //   .then(res => {
+  //     //   console.log("RES", res.data);
+  //     dispatch({ type: LOGIN_SUCCESS, payload: res.data });
+  //   })
+  //   .catch(err => {
+  //     dispatch({
+  //       type: LOGIN_FAIL,
+  //       payload: err
+  //     });
+  //   });
 };
 
 // export const getStuff = () => dispatch => {

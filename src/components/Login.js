@@ -10,19 +10,26 @@ const Login = props => {
   const hc = e => {
     props.handleChange(e);
   };
+
+  const li = e => {
+    e.preventDefault();
+    props.login(e);
+  };
   return (
     <div>
-      <form onSubmit={login} className="loginForm">
+      <form onSubmit={li} className="loginForm">
         <h2>Login:</h2>
         <input
           type="text"
           name="username"
+          placeholder="Email Address"
           value={props.credentials.username}
           onChange={e => hc(e)}
         />
         <input
           type="password"
           name="password"
+          placeholder="Password"
           value={props.credentials.password}
           onChange={e => hc(e)}
         />
