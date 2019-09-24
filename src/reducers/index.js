@@ -5,6 +5,14 @@ import {
   HANDLE_CHANGE,
   FARMER_CHANGE
 } from "../actions";
+import { combineReducers } from "redux";
+import { connectRouter } from "connected-react-router";
+
+export const createRootReducer = history =>
+  combineReducers({
+    router: connectRouter(history),
+    reducer
+  });
 
 const initialState = {
   authLoading: false,
@@ -20,23 +28,22 @@ const initialState = {
 };
 
 export const reducer = (state = initialState, action) => {
-  console.log("ACTION", action);
+  // console.log("ACTION", action);
   switch (action.type) {
     case LOGIN_START:
       console.log("LOGIN START");
-      return state;
+      return { ...state, authLoading: true };
     case LOGIN_SUCCESS:
-      return state;
+      console.log("LOGINSUCCESS", action.payload);
+      return { ...state, authLoading: false };
     case LOGIN_FAIL:
       return state;
     case HANDLE_CHANGE:
-      console.log("CHANGE", action);
       return {
         ...state,
         credentials: { [action.payload.name]: action.payload.value }
       };
     case FARMER_CHANGE:
-      console.log("Make it", action.payload);
       return {
         ...state,
         farmer: Boolean(action.payload)
