@@ -21,7 +21,13 @@ function CustomerDashboard() {
       <h2>Welcome to the Customer Dashboard!</h2>
       <div className="orders">
         <h3>Current Orders</h3>
-        <Order orders={orders} />
+        <Order
+          orders={orders.filter(item => {
+            if (item.consumer_id === 1) {
+              return item;
+            }
+          })}
+        />
       </div>
     </div>
   );

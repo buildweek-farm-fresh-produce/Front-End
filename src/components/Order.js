@@ -3,9 +3,20 @@ import "../App.scss";
 import { connect } from "react-redux";
 
 const Order = props => {
+  console.log("Orders", props.orders);
   return (
     <div className="orderCard">
-      <p>Hi, I'm an order</p>
+      {props.orders.map(item => {
+        return (
+          <a href={`/dasboard/${item.id}`}>
+            <div className="orderPrev">
+              <p>item.purchase_date</p>
+              <p>item.delivered</p>
+              <p>item.consumer_id</p>
+            </div>
+          </a>
+        );
+      })}
     </div>
   );
 };

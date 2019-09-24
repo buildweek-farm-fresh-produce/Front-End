@@ -31,10 +31,10 @@ export const reducer = (state = initialState, action) => {
   // console.log("ACTION", action);
   switch (action.type) {
     case LOGIN_START:
-      console.log("LOGIN START");
+      // console.log("LOGIN START");
       return { ...state, authLoading: true };
     case LOGIN_SUCCESS:
-      console.log("LOGINSUCCESS", action.payload);
+      // console.log("LOGINSUCCESS", action.payload);
       return { ...state, authLoading: false };
     case LOGIN_FAIL:
       return state;
@@ -46,7 +46,7 @@ export const reducer = (state = initialState, action) => {
     case FARMER_CHANGE:
       return {
         ...state,
-        farmer: Boolean(action.payload)
+        farmer: action.payload
       };
     default:
       return state;
