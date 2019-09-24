@@ -23,6 +23,9 @@ function Header() {
         <Link to="/register" className="link">
           Register
         </Link>
+        <Link to="/signup" className="link">
+          SignUp
+        </Link>
       </div>
     </div>
   );
