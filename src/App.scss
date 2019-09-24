@@ -93,10 +93,12 @@
 .orders {
 }
 .orderPrev {
-  display: flex;
-  justify-content: space-between;
   border: 1px solid $border;
   background-color: white;
   width: 400px;
   margin: 10px auto;
+  .list {
+    display: flex;
+    justify-content: space-between;
+  }
 }
