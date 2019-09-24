@@ -1,74 +1,77 @@
 import React from "react";
-import { withFormik } from "formik"; //withFormik is used to create a higher order component
+import { withFormik, Form, Field } from "formik"; //withFormik is used to create a higher order component
 import Yup from "yup";
 
-const SignUp = ({ values, handleChange, handleSubmit}) => {
+const SignUp = ({ values, handleChange }) => {
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <Form>
         <div>
-          <input
-            type="username"
-            name="username"
-            placeholder="Username"
-            value={values.username}
-            onChange={handleChange}
-          />
+          <label>
+            Username:
+            <Field type="username" name="username" placeholder="Username" />
+          </label>
         </div>
         <div>
-          <input
-            type="email"
-            name="email"
-            placeholder="Email"
-            value={values.email}
-            onChange={handleChange}
-          />
+          <label>
+            Email:
+            <Field type="email" name="email" placeholder="Email" />
+          </label>
         </div>
         <div>
-          <input
-            type="password"
-            name="password"
-            placeholder="Password"
-            value={values.password}
-            onChange={handleChange}
-          />
+          <label>
+            Password:
+            <Field type="password" name="password" placeholder="Password" />
+          </label>
         </div>
         <div>
-          <input
-            type="state"
-            name="state"
-            placeholder="State"
-            value={values.state}
-            onChange={handleChange}
-          />
+          <label>
+            State:
+            <Field type="state" name="state" placeholder="State" />
+          </label>
         </div>
         <div>
-          <input
-            type="address"
-            name="address"
-            placeholder="Address"
-            value={values.address}
-            onChange={handleChange}
-          />
+          <label>
+            Address:
+            <Field type="address" name="address" placeholder="Address" />
+          </label>
         </div>
+        <label>
+          Farmer:
+          <Field name="farmer" type="checkbox" checked={values.farmer} />
+        </label>
+        <label>
+          Consumer:
+          <Field name="consumer" type="checkbox" checked={values.consumer} />
+        </label>
         <button>Submit</button>
-      </form>
+      </Form>
     </div>
   );
 };
 
 const FormikSignUp = withFormik({
-  mapPropsToValues({ username, email, password, state, address }) {
+  mapPropsToValues({
+    username,
+    email,
+    password,
+    state,
+    address,
+    farmer,
+    consumer
+  }) {
     return {
       username: username || "",
       email: email || "",
       password: password || "",
       state: state || "",
-      address: address || ""
+      address: address || "",
+      farmer: farmer || false,
+      consumer: consumer || false
     };
   },
-  handleSubmit(values){
-      console.log(values)
+  handleSubmit(values) {
+    console.log(values);
   }
 })(SignUp);
 
