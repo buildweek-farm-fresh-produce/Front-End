@@ -5,7 +5,6 @@ import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Loader from "react-loader-spinner";
 import { login, handleChange, farmerAC } from "../actions";
 
-
 const Login = props => {
   console.log("Login", props);
   const hc = e => {
@@ -68,7 +67,7 @@ const Login = props => {
         {props.isLoading && (
           <>
             <h2>Loading...</h2>
-            {/* <Loader type="Rings" color="red" height={80} width={80} /> */}
+            <Loader type="Rings" color="red" height={80} width={80} />
           </>
         )}
       </div>

@@ -20,9 +20,9 @@ function Header() {
         <Link to="/login" className="link">
           Login
         </Link>
-        <Link to="/register" className="link">
+        {/* <Link to="/register" className="link">
           Register
-        </Link>
+        </Link> */}
         <Link to="/signup" className="link">
           SignUp
         </Link>

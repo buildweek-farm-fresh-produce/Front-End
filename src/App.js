@@ -1,12 +1,14 @@
 import React from "react";
 import "./App.scss";
 import { connect } from "react-redux";
+import { Route, Switch } from "react-router-dom";
 import Header from "./components/Header.js";
 import Main from "./components/Main.js";
 import Login from "./components/Login.js";
-import Register from "./components/Register.js";
-import FormikSignUp from "./components/Signup"
-import { Route, Switch } from "react-router-dom";
+import PrivateRoute from "./components/PrivateRoute.js";
+import CustomerDashboard from "./components/CustomerDashboard.js";
+// import Register from "./components/Register.js";
+import FormikSignUp from "./components/Signup";
 
 function App() {
   return (
@@ -16,8 +18,9 @@ function App() {
         <Switch>
           <Route exact path="/" component={Main} />
           <Route exact path="/login" component={Login} />
-          <Route exact path="/register" component={Register} />
-          <Route path='/signup' component={FormikSignUp}/>
+          {/* <Route exact path="/register" component={Register} /> */}
+          <Route exact path="/signup" component={FormikSignUp} />
+          <PrivateRoute exact path="/dashboard" component={CustomerDashboard} />
         </Switch>
       </div>
     </div>
