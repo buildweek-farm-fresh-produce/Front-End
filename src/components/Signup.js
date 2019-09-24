@@ -18,15 +18,15 @@ const UserDiv = styled.div`
     display: flex;
     flex-direction: row;
   }
-  border: 2px solid green;
+  /* border: 2px solid green; */
   width: 600px;
 
   h2 {
-    border: 2px solid green;
+    /* border: 2px solid green; */
   }
 
   input {
-    border: 2px solid red;
+    /* border: 2px solid red; */
     display: flex;
     margin: 20px auto;
     line-height: 37px;
@@ -39,16 +39,16 @@ const EmailDiv = styled.div`
     display: flex;
     flex-direction: row;
   }
-  border: 2px solid red;
+  /* border: 2px solid red; */
   width: 600px;
 
   h2 {
-    border: 2px solid green;
+    /* border: 2px solid green; */
     margin-right: 58px;
   }
 
   input {
-    border: 2px solid red;
+    /* border: 2px solid red; */
     display: flex;
     margin: 20px auto;
     line-height: 37px;
@@ -60,16 +60,16 @@ const PasswordDiv = styled.div`
     display: flex;
     flex-direction: row;
   }
-  border: 2px solid orange;
+  /* border: 2px solid orange; */
   width: 600px;
 
   h2 {
-    border: 2px solid green;
+    /* border: 2px solid green; */
     margin-right: 9px;
   }
 
   input {
-    border: 2px solid red;
+    /* border: 2px solid red; */
     display: flex;
     margin: 20px auto;
     line-height: 37px;
@@ -82,16 +82,16 @@ const StateDiv = styled.div`
     display: flex;
     flex-direction: row;
   }
-  border: 2px solid black;
+  /* border: 2px solid black; */
   width: 600px;
 
   h2 {
-    border: 2px solid green;
+    /* border: 2px solid green; */
     margin-right: 70px;
   }
 
   input {
-    border: 2px solid red;
+    /* border: 2px solid red; */
     display: flex;
     margin: 20px auto;
     line-height: 37px;
@@ -104,16 +104,16 @@ const AddressDiv = styled.div`
     display: flex;
     flex-direction: row;
   }
-  border: 2px solid blue;
+  /* border: 2px solid blue; */
   width: 600px;
 
   h2 {
-    border: 2px solid green;
+    /* border: 2px solid green; */
     margin-right: 32px;
   }
 
   input {
-    border: 2px solid red;
+    /* border: 2px solid red; */
     display: flex;
     margin: 20px auto;
     line-height: 37px;
@@ -121,26 +121,26 @@ const AddressDiv = styled.div`
   }
 `;
 
-const Submit = styled.span`
+const Submit = styled.div`
   label {
     display: flex;
     flex-direction: row;
   }
-  border: 2px solid blue;
+  /* border: 2px solid blue; */
   width: 600px;
 
   h2 {
-    border: 2px solid green;
+    /* border: 2px solid green; */
     margin-right: 32px;
   }
-
+  /* 
   input {
     border: 2px solid red;
     display: flex;
     margin: 20px auto;
     line-height: 37px;
     font-size: 1.7rem;
-  }
+  } */
 `;
 
 const SignUp = ({ values, errors, touched, isSubmitting }) => {
@@ -180,19 +180,30 @@ const SignUp = ({ values, errors, touched, isSubmitting }) => {
             <Field type="address" name="address" placeholder="Address" />
           </label>
         </AddressDiv>
+        <Submit>
+          <div>
+            <div className="farmer">
+              <label>
+                <h2 style={{ marginTop: " -11px", marginRight: "47px" }}>
+                  Farmer:
+                </h2>
+                <Field name="farmer" type="checkbox" checked={values.farmer} />
+              </label>
+            </div>
 
-        <span style={{border:'2px solid red'}} className="submit">
-          <label>
-            Farmer:
-            <Field name="farmer" type="checkbox" checked={values.farmer} />
-          </label>
-
-          <label>
-            Consumer:
-            <Field name="consumer" type="checkbox" checked={values.consumer} />
-          </label>
-          <button disabled={isSubmitting}>Submit</button>
-        </span>
+            <label>
+              <h2 style={{ marginTop: " -11px", marginRight: "9px" }}>Consumer:</h2>
+              <Field
+                name="consumer"
+                type="checkbox"
+                checked={values.consumer}
+              />
+            </label>
+            <div>
+              <button disabled={isSubmitting}>Submit</button>
+            </div>
+          </div>
+        </Submit>
       </Form>
     </SyledMainDiv>
   );
