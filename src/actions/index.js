@@ -1,5 +1,4 @@
 import { axiosWithAuth } from "../utils/axiosWithAuth";
-
 export const LOGIN_START = "LOGIN_START";
 export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
 export const LOGIN_FAIL = "LOGIN_FAIL";
@@ -8,20 +7,25 @@ export const HANDLE_CHANGE = "HANDLE_CHANGE";
 export const FARMER_CHANGE = "FARMER_CHANGE";
 
 export const login = state => dispatch => {
-  dispatch({ type: LOGIN_START, payload: "Please Wait" });
-  state.authLoading(true);
-  axiosWithAuth()
-    .post("/https://farm-fresh-bw.herokuapp.com/shop/login", state.credentials)
-    .then(res => {
-      //   console.log("RES", res.data);
-      dispatch({ type: LOGIN_SUCCESS, payload: res.data });
-    })
-    .catch(err => {
-      dispatch({
-        type: LOGIN_FAIL,
-        payload: err
-      });
-    });
+  dispatch({ type: LOGIN_START });
+  // axiosWithAuth()
+  //   .post("/login", state.credentials)
+  //   .then(res => {
+  //     // console.log("LoginRES", res.data);
+
+  //     dispatch({ type: LOGIN_SUCCESS, payload: res.data });
+  //   })
+  //   .catch(err => {
+  //     dispatch({
+  //       type: LOGIN_FAIL,
+  //       payload: err
+  //     });
+  //   });
+  localStorage.setItem(
+    "token",
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoicGd1c2VyMTAwMCIsInVzZXJUeXBlIjoiY29uc3VtZXIiLCJpYXQiOjE1NjkzNDYyMDUsImV4cCI6MTU2OTQzMjYwNX0.Q7288qA2pd9oxiGEvBfSwwuwVOO9HDVD_A49a_3ejUE"
+  );
+  dispatch({ type: LOGIN_SUCCESS, payload: "HI" });
 };
 
 export const handleChange = e => dispatch => {

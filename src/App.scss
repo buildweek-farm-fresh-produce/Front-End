@@ -1,6 +1,4 @@
-//variables
-$border: #656f7c;
-$background: rgba(153, 170, 119, 1);
+@import "/css/variables";
 .App {
   text-align: center;
   background-image: url(./img/background2.png);
@@ -91,4 +89,14 @@ $background: rgba(153, 170, 119, 1);
       }
     }
   }
+}
+.orders {
+}
+.orderPrev {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid $border;
+  background-color: white;
+  width: 400px;
+  margin: 10px auto;
 }

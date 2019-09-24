@@ -5,14 +5,14 @@ import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Loader from "react-loader-spinner";
 import { login, handleChange, farmerAC } from "../actions";
 
-
 const Login = props => {
-  console.log("Login", props);
-  const hc = e => {
+  // console.log("Login", props);
+
+  const textChange = e => {
     props.handleChange(e);
   };
 
-  const li = e => {
+  const submitLogin = e => {
     e.preventDefault();
     props.login(e);
   };
@@ -23,21 +23,21 @@ const Login = props => {
 
   return (
     <div>
-      <form onSubmit={li} className="loginForm">
-        <h2>Login:</h2>
+      <form onSubmit={submitLogin} className="loginForm">
+        <h2>{props.authLoading ? "Please Wait" : "Login:"}</h2>
         <input
           type="text"
           name="username"
           placeholder="Email Address"
           value={props.credentials.username}
-          onChange={e => hc(e)}
+          onChange={e => textChange(e)}
         />
         <input
           type="password"
           name="password"
           placeholder="Password"
           value={props.credentials.password}
-          onChange={e => hc(e)}
+          onChange={e => textChange(e)}
         />
         <div className="radio">
           <div>
@@ -68,7 +68,7 @@ const Login = props => {
         {props.isLoading && (
           <>
             <h2>Loading...</h2>
-            {/* <Loader type="Rings" color="red" height={80} width={80} /> */}
+            <Loader type="Rings" color="red" height={80} width={80} />
           </>
         )}
       </div>
