@@ -14,7 +14,7 @@ const Login = props => {
 
   const submitLogin = e => {
     e.preventDefault();
-    props.login(e);
+    props.login(props.credentials);
   };
 
   const farmerRadio = e => {

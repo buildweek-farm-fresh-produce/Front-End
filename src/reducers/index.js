@@ -42,14 +42,19 @@ export const reducer = (state = initialState, action) => {
       // console.log("LOGIN START");
       return { ...state, authLoading: true };
     case LOGIN_SUCCESS:
-      // console.log("LOGINSUCCESS", action.payload);
+      console.log("LOGINSUCCESS", action.payload);
       return { ...state, authLoading: false };
     case LOGIN_FAIL:
+      console.log("LOGINFAIL", action.payload);
       return state;
     case HANDLE_CHANGE:
+      // console.log("REDUCECRED", state.credentials, action.payload);
       return {
         ...state,
-        credentials: { [action.payload.name]: action.payload.value }
+        credentials: {
+          ...state.credentials,
+          [action.payload.name]: action.payload.value
+        }
       };
     case FARMER_CHANGE:
       return {
