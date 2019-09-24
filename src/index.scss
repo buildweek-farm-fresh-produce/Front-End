@@ -1,10 +1,4 @@
-//less than 1.8rem
-$smallText: #778855;
-// large non bold black text (18pt or greater)
-$largeText: #99aa77;
-//Medium black Bold Text (14pt or higher)
-$mediumBoldText: #556677;
-
+@import "/css/variables";
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Playfair Display", serif,

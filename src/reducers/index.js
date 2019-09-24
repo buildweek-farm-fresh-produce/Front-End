@@ -5,7 +5,7 @@ import {
   HANDLE_CHANGE,
   FARMER_CHANGE
 } from "../actions";
-import { combineReducers } from "redux";
+// import { combineReducers } from "redux";
 // import { connectRouter } from "connected-react-router";
 
 // export const createRootReducer = history =>
@@ -24,6 +24,14 @@ const initialState = {
   register: {
     username: "",
     password: ""
+  },
+  consumer: {
+    id: "",
+    shipping_address: "",
+    purchase_date: "",
+    delivered: "",
+    consumer_id: "",
+    orders: []
   }
 };
 

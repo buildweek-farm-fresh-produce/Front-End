@@ -68,7 +68,7 @@ const Login = props => {
         {props.isLoading && (
           <>
             <h2>Loading...</h2>
-            <Loader type="Rings" color="red" height={80} width={80} />
+            <Loader type="Rings" color="green" height={80} width={80} />
           </>
         )}
       </div>
