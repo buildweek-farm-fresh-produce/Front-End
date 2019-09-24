@@ -12,12 +12,14 @@ const SyledMainDiv = styled.div`
   justify-content: space-between;
   border-radius: 10px;
 `;
+
 const UserDiv = styled.div`
   label {
     display: flex;
     flex-direction: row;
   }
-  border: 2px solid red;
+  border: 2px solid green;
+  width: 600px;
 
   h2 {
     border: 2px solid green;
@@ -25,7 +27,116 @@ const UserDiv = styled.div`
 
   input {
     border: 2px solid red;
-    display: block;
+    display: flex;
+    margin: 20px auto;
+    line-height: 37px;
+    font-size: 1.7rem;
+  }
+`;
+
+const EmailDiv = styled.div`
+  label {
+    display: flex;
+    flex-direction: row;
+  }
+  border: 2px solid red;
+  width: 600px;
+
+  h2 {
+    border: 2px solid green;
+    margin-right: 58px;
+  }
+
+  input {
+    border: 2px solid red;
+    display: flex;
+    margin: 20px auto;
+    line-height: 37px;
+    font-size: 1.7rem;
+  }
+`;
+const PasswordDiv = styled.div`
+  label {
+    display: flex;
+    flex-direction: row;
+  }
+  border: 2px solid orange;
+  width: 600px;
+
+  h2 {
+    border: 2px solid green;
+    margin-right: 9px;
+  }
+
+  input {
+    border: 2px solid red;
+    display: flex;
+    margin: 20px auto;
+    line-height: 37px;
+    font-size: 1.7rem;
+  }
+`;
+
+const StateDiv = styled.div`
+  label {
+    display: flex;
+    flex-direction: row;
+  }
+  border: 2px solid black;
+  width: 600px;
+
+  h2 {
+    border: 2px solid green;
+    margin-right: 70px;
+  }
+
+  input {
+    border: 2px solid red;
+    display: flex;
+    margin: 20px auto;
+    line-height: 37px;
+    font-size: 1.7rem;
+  }
+`;
+
+const AddressDiv = styled.div`
+  label {
+    display: flex;
+    flex-direction: row;
+  }
+  border: 2px solid blue;
+  width: 600px;
+
+  h2 {
+    border: 2px solid green;
+    margin-right: 32px;
+  }
+
+  input {
+    border: 2px solid red;
+    display: flex;
+    margin: 20px auto;
+    line-height: 37px;
+    font-size: 1.7rem;
+  }
+`;
+
+const Submit = styled.span`
+  label {
+    display: flex;
+    flex-direction: row;
+  }
+  border: 2px solid blue;
+  width: 600px;
+
+  h2 {
+    border: 2px solid green;
+    margin-right: 32px;
+  }
+
+  input {
+    border: 2px solid red;
+    display: flex;
     margin: 20px auto;
     line-height: 37px;
     font-size: 1.7rem;
@@ -43,41 +154,45 @@ const SignUp = ({ values, errors, touched, isSubmitting }) => {
             <Field type="username" name="username" placeholder="Username" />
           </label>
         </UserDiv>
-        <div>
+        <EmailDiv>
           {touched.email && errors.email && <p>{errors.email}</p>}
           <label>
-            Email:
+            <h2>Email:</h2>
             <Field type="email" name="email" placeholder="Email" />
           </label>
-        </div>
-        <div>
+        </EmailDiv>
+        <PasswordDiv>
           {touched.password && errors.password && <p>{errors.password}</p>}
           <label>
-            Password:
+            <h2>Password:</h2>
             <Field type="password" name="password" placeholder="Password" />
           </label>
-        </div>
-        <div>
+        </PasswordDiv>
+        <StateDiv>
           <label>
-            State:
+            <h2>State:</h2>
             <Field type="state" name="state" placeholder="State" />
           </label>
-        </div>
-        <div>
+        </StateDiv>
+        <AddressDiv>
           <label>
-            Address:
+            <h2>Address:</h2>
             <Field type="address" name="address" placeholder="Address" />
           </label>
-        </div>
-        <label>
-          Farmer:
-          <Field name="farmer" type="checkbox" checked={values.farmer} />
-        </label>
-        <label>
-          Consumer:
-          <Field name="consumer" type="checkbox" checked={values.consumer} />
-        </label>
-        <button disabled={isSubmitting}>Submit</button>
+        </AddressDiv>
+
+        <span style={{border:'2px solid red'}} className="submit">
+          <label>
+            Farmer:
+            <Field name="farmer" type="checkbox" checked={values.farmer} />
+          </label>
+
+          <label>
+            Consumer:
+            <Field name="consumer" type="checkbox" checked={values.consumer} />
+          </label>
+          <button disabled={isSubmitting}>Submit</button>
+        </span>
       </Form>
     </SyledMainDiv>
   );
