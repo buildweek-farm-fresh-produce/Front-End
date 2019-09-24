@@ -38,6 +38,7 @@
       border-radius: 25px;
       box-shadow: 2px 2px 3px #000;
       line-height: 40px;
+      font-family: "Playfair Display", serif;
     }
   }
 }
@@ -101,4 +102,29 @@
     display: flex;
     justify-content: space-between;
   }
+}
+.orderDetail {
+  border: 1px solid $border;
+  background-color: white;
+  width: 500px;
+  margin: 10px auto;
+  border-radius: 10px;
+  .itemList {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+.button {
+  width: 100px;
+  height: 30px;
+  color: white;
+  background: $background;
+  border: 3px solid $border;
+  border-radius: 25px;
+  box-shadow: 2px 2px 3px #000;
+  line-height: 30px;
+  font-family: "Playfair Display", serif;
+  font-size: 1.4rem;
+  margin-right: 5px;
+  margin-top: 20px;
 }

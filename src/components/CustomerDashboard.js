@@ -1,11 +1,12 @@
 import React, { useEffect } from "react";
 import "../App.scss";
 import { connect } from "react-redux";
-import { axiosWithAuth } from "../utils/axiosWithAuth";
+// import { axiosWithAuth } from "../utils/axiosWithAuth";
 import Order from "./order/Order";
 
 function CustomerDashboard() {
   useEffect(props => {
+    // Should be sent to an AC
     // axiosWithAuth()
     //   .get("/login", props.credentials)
     //   .then(res => {

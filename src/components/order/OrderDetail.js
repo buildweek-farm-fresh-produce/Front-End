@@ -1,22 +1,37 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../../App.scss";
 import { connect } from "react-redux";
 import { withRouter } from "react-router";
 
 const OrderDetail = props => {
   console.log("OrderDeet", props);
+
+  useEffect(() => {}, []);
+
   return (
     <div className="orderDetail">
-      <h2>Detail!</h2>
+      <p>{props.purchase_date}</p>
+      <p>{props.delivered}</p>
+      <p>{props.consumer_id}</p>
+      {idumbs.map(item => {
+        return (
+          <div className="itemList" key={item.consumer_id}>
+            <p>{item.quantity}</p>
+            <p>{item.produce_item_id}</p>
+            <p>{item.farm_id}</p>
+            <p>{item.order_id}</p>
+            <div className="button">Edit</div>
+            <div className="button">Delete</div>
+          </div>
+        );
+      })}
     </div>
   );
 };
 
 const mapStateToProps = state => {
   return {
-    credentials: state.credentials,
-    authLoading: state.authLoading,
-    farmer: state.farmer
+    consumer: state.consumer
   };
 };
 
