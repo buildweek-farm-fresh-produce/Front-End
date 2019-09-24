@@ -143,7 +143,16 @@ const Submit = styled.div`
   } */
 `;
 
-const SignUp = ({ values, errors, touched, isSubmitting }) => {
+
+const SignUp = props =>{
+    const{ 
+    values, 
+    errors, 
+    touched, 
+    isSubmitting,
+    setFieldValue,
+ }= props;
+
   return (
     <SyledMainDiv>
       <Form>
@@ -187,20 +196,29 @@ const SignUp = ({ values, errors, touched, isSubmitting }) => {
                 <h2 style={{ marginTop: " -11px", marginRight: "47px" }}>
                   Farmer:
                 </h2>
-                <Field name="farmer" type="checkbox" checked={values.farmer} />
+                <input
+                name="test" 
+                type="radio" 
+                value="true"
+                checked={values.test === "Farmer"} 
+                onChange={()=>setFieldValue("test","Farmer")}
+                />
               </label>
             </div>
 
             <label>
               <h2 style={{ marginTop: " -11px", marginRight: "9px" }}>Consumer:</h2>
-              <Field
-                name="consumer"
-                type="checkbox"
-                checked={values.consumer}
+              <input
+                name="test"
+                value="false"
+                type="radio"
+                checked={values.test==="Consumer"}
+                onChange={()=>setFieldValue("test","Consumer")}
+
               />
             </label>
             <div>
-              <button disabled={isSubmitting}>Submit</button>
+              <button type="submit" disabled={isSubmitting}>Submit</button>
             </div>
           </div>
         </Submit>
@@ -225,8 +243,6 @@ const FormikSignUp = withFormik({
       password: password || "",
       state: state || "",
       address: address || "",
-      farmer: farmer || false,
-      consumer: consumer || false
     };
   },
   validationSchema: Yup.object().shape({

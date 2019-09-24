@@ -1,8 +1,8 @@
 import React from "react";
 import "../App.scss";
 import { connect } from "react-redux";
-import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
-import Loader from "react-loader-spinner";
+// import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+// import Loader from "react-loader-spinner";
 import { login, handleChange, farmerAC } from "../actions";
 
 
