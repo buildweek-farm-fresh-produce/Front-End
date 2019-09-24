@@ -1,8 +1,10 @@
 import React from "react";
 import { withFormik, Form, Field } from "formik"; //withFormik is used to create a higher order component
 import * as Yup from "yup";
+import "../App.scss";
 import styled from "styled-components";
 
+//styled componets
 const SyledMainDiv = styled.div`
   margin: 10px auto;
   border: 5px solid #a4a37a;
@@ -12,43 +14,31 @@ const SyledMainDiv = styled.div`
   justify-content: space-between;
   border-radius: 10px;
 `;
-
 const UserDiv = styled.div`
+  width: 500px;
+  margin-left: 20px;
   label {
     display: flex;
     flex-direction: row;
   }
-  /* border: 2px solid green; */
-  width: 600px;
-
-  h2 {
-    /* border: 2px solid green; */
-  }
-
   input {
-    /* border: 2px solid red; */
     display: flex;
     margin: 20px auto;
     line-height: 37px;
     font-size: 1.7rem;
   }
 `;
-
 const EmailDiv = styled.div`
+  width: 500px;
+  margin-left: 20px;
   label {
     display: flex;
     flex-direction: row;
   }
-  /* border: 2px solid red; */
-  width: 600px;
-
   h2 {
-    /* border: 2px solid green; */
     margin-right: 58px;
   }
-
   input {
-    /* border: 2px solid red; */
     display: flex;
     margin: 20px auto;
     line-height: 37px;
@@ -56,102 +46,92 @@ const EmailDiv = styled.div`
   }
 `;
 const PasswordDiv = styled.div`
+  width: 500px;
+  margin-left: 20px;
   label {
     display: flex;
     flex-direction: row;
   }
-  /* border: 2px solid orange; */
-  width: 600px;
-
   h2 {
-    /* border: 2px solid green; */
     margin-right: 9px;
   }
-
   input {
-    /* border: 2px solid red; */
     display: flex;
     margin: 20px auto;
     line-height: 37px;
     font-size: 1.7rem;
   }
 `;
-
 const StateDiv = styled.div`
+  width: 500px;
+  margin-left: 20px;
   label {
     display: flex;
     flex-direction: row;
   }
-  /* border: 2px solid black; */
-  width: 600px;
-
   h2 {
-    /* border: 2px solid green; */
     margin-right: 70px;
   }
-
   input {
-    /* border: 2px solid red; */
     display: flex;
     margin: 20px auto;
     line-height: 37px;
     font-size: 1.7rem;
   }
 `;
-
 const AddressDiv = styled.div`
+  width: 500px;
+  margin-left: 20px;
   label {
     display: flex;
     flex-direction: row;
   }
-  /* border: 2px solid blue; */
-  width: 600px;
-
   h2 {
-    /* border: 2px solid green; */
     margin-right: 32px;
   }
-
   input {
-    /* border: 2px solid red; */
     display: flex;
     margin: 20px auto;
     line-height: 37px;
     font-size: 1.7rem;
   }
 `;
-
-const Submit = styled.div`
-  label {
+const RadioButtons = styled.div`
+  font-size: 1.4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  div {
+    margin: 10px 15px;
     display: flex;
-    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    label {
+      margin-right: 10px;
+    }
+    input {
+      margin-top: 6px;
+    }
   }
-  /* border: 2px solid blue; */
-  width: 600px;
-
-  h2 {
-    /* border: 2px solid green; */
-    margin-right: 32px;
-  }
-  /* 
-  input {
-    border: 2px solid red;
-    display: flex;
-    margin: 20px auto;
-    line-height: 37px;
-    font-size: 1.7rem;
-  } */
+`;
+const SubmitButton = styled.div`
+  height: 55px;
+  width: 125px;
+  background: rgba(153, 170, 119, 1);
+  color: white;
+  border-radius: 25px;
+  line-height: 55px;
+  font-size: 1.8rem;
+  border: 3px solid #656f7c;
+  border-radius: 25px;
+  box-shadow: 2px 2px 3px #000;
+  font-family: "Playfair Display", serif;
+  margin-left: 246px;
+  margin-bottom: 10px;
 `;
 
-
-const SignUp = props =>{
-    const{ 
-    values, 
-    errors, 
-    touched, 
-    isSubmitting,
-    setFieldValue,
- }= props;
+const SignUp = props => {
+  const { values, errors, touched, isSubmitting, setFieldValue } = props;
 
   return (
     <SyledMainDiv>
@@ -189,60 +169,47 @@ const SignUp = props =>{
             <Field type="address" name="address" placeholder="Address" />
           </label>
         </AddressDiv>
-        <Submit>
+        <RadioButtons>
           <div>
-            <div className="farmer">
-              <label>
-                <h2 style={{ marginTop: " -11px", marginRight: "47px" }}>
-                  Farmer:
-                </h2>
-                <input
-                name="test" 
-                type="radio" 
-                value="true"
-                checked={values.test === "Farmer"} 
-                onChange={()=>setFieldValue("test","Farmer")}
-                />
-              </label>
-            </div>
-
             <label>
-              <h2 style={{ marginTop: " -11px", marginRight: "9px" }}>Consumer:</h2>
-              <input
-                name="test"
-                value="false"
-                type="radio"
-                checked={values.test==="Consumer"}
-                onChange={()=>setFieldValue("test","Consumer")}
-
-              />
+              <h2>Customer:</h2>
             </label>
-            <div>
-              <button type="submit" disabled={isSubmitting}>Submit</button>
-            </div>
+            <input
+              name="test"
+              value="false"
+              type="radio"
+              checked={values.test === "Customer"}
+              onChange={() => setFieldValue("test", "Customer")}
+            />
           </div>
-        </Submit>
+          <div>
+            <label>
+              <h2>Farmer:</h2>
+            </label>
+            <input
+              name="test"
+              type="radio"
+              value="true"
+              checked={values.test === "Farmer"}
+              onChange={() => setFieldValue("test", "Farmer")}
+            />
+          </div>
+        </RadioButtons>
+        <SubmitButton>
+          <button disabled={isSubmitting}>Submit</button>
+        </SubmitButton>
       </Form>
     </SyledMainDiv>
   );
 };
-
 const FormikSignUp = withFormik({
-  mapPropsToValues({
-    username,
-    email,
-    password,
-    state,
-    address,
-    farmer,
-    consumer
-  }) {
+  mapPropsToValues({ username, email, password, state, address }) {
     return {
       username: username || "",
       email: email || "",
       password: password || "",
       state: state || "",
-      address: address || "",
+      address: address || ""
     };
   },
   validationSchema: Yup.object().shape({

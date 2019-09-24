@@ -8422,7 +8422,7 @@ react-is@^16.6.0, react-is@^16.7.0, react-is@^16.8.1, react-is@^16.8.4, react-is
 
 react-loader-spinner@^3.1.4:
   version "3.1.4"
-  resolved "https://registry.yarnpkg.com/react-loader-spinner/-/react-loader-spinner-3.1.4.tgz#03ef24252f6802d6e85443c23b32c2e66973fe4d"
+  resolved "https://registry.npmjs.org/react-loader-spinner/-/react-loader-spinner-3.1.4.tgz#03ef24252f6802d6e85443c23b32c2e66973fe4d"
   integrity sha512-pl7cvc1eZFwOoUW33BJnuR9TBcAS25SD15RFYecY9ikb8Kv+yFFmaITU6xg001Aw8HsNreAUsrIHozf2fNmIqQ==
   dependencies:
     babel-runtime "^6.26.0"
@@ -8430,7 +8430,7 @@ react-loader-spinner@^3.1.4:
 
 react-redux@^7.1.1:
   version "7.1.1"
-  resolved "https://registry.yarnpkg.com/react-redux/-/react-redux-7.1.1.tgz#ce6eee1b734a7a76e0788b3309bf78ff6b34fa0a"
+  resolved "https://registry.npmjs.org/react-redux/-/react-redux-7.1.1.tgz#ce6eee1b734a7a76e0788b3309bf78ff6b34fa0a"
   integrity sha512-QsW0vcmVVdNQzEkrgzh2W3Ksvr8cqpAv5FhEk7tNEft+5pp7rXxAudTz3VOPawRkLIepItpkEIyLcN/VVXzjTg==
   dependencies:
     "@babel/runtime" "^7.5.5"
@@ -8455,7 +8455,7 @@ react-router-dom@^5.0.1:
 
 react-router-redux@^4.0.8:
   version "4.0.8"
-  resolved "https://registry.yarnpkg.com/react-router-redux/-/react-router-redux-4.0.8.tgz#227403596b5151e182377dab835b5d45f0f8054e"
+  resolved "https://registry.npmjs.org/react-router-redux/-/react-router-redux-4.0.8.tgz#227403596b5151e182377dab835b5d45f0f8054e"
   integrity sha1-InQDWWtRUeGCN32rg1tdRfD4BU4=
 
 react-router@5.0.1:
@@ -8650,12 +8650,12 @@ redent@^1.0.0:
 
 redux-thunk@^2.3.0:
   version "2.3.0"
-  resolved "https://registry.yarnpkg.com/redux-thunk/-/redux-thunk-2.3.0.tgz#51c2c19a185ed5187aaa9a2d08b666d0d6467622"
+  resolved "https://registry.npmjs.org/redux-thunk/-/redux-thunk-2.3.0.tgz#51c2c19a185ed5187aaa9a2d08b666d0d6467622"
   integrity sha512-km6dclyFnmcvxhAcrQV2AkZmPQjzPDjgVlQtR0EQjxZPyJ0BnMf3in1ryuR8A2qU0HldVRfxYXbFSKlI3N7Slw==
 
 redux@^4.0.4:
   version "4.0.4"
-  resolved "https://registry.yarnpkg.com/redux/-/redux-4.0.4.tgz#4ee1aeb164b63d6a1bcc57ae4aa0b6e6fa7a3796"
+  resolved "https://registry.npmjs.org/redux/-/redux-4.0.4.tgz#4ee1aeb164b63d6a1bcc57ae4aa0b6e6fa7a3796"
   integrity sha512-vKv4WdiJxOWKxK0yRoaK3Y4pxxB0ilzVx6dszU2W8wLxlb2yikRph4iV/ymtdJ6ZxpBLFbyrxklnT5yBbQSl3Q==
   dependencies:
     loose-envify "^1.4.0"
