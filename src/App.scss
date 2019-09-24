@@ -5,6 +5,7 @@ $background: rgba(153, 170, 119, 1);
   text-align: center;
   background-image: url(./img/background2.png);
   min-height: 800px;
+  padding-top: 10px;
 }
 
 .header {
@@ -15,6 +16,7 @@ $background: rgba(153, 170, 119, 1);
     width: 600px;
     margin: 0px auto;
     background: white;
+    border-radius: 10px;
     display: flex;
     justify-content: center;
     img {
@@ -29,6 +31,7 @@ $background: rgba(153, 170, 119, 1);
     background: white;
     display: flex;
     justify-content: space-between;
+    border-radius: 10px;
     .link {
       width: 120px;
       color: white;
@@ -41,5 +44,32 @@ $background: rgba(153, 170, 119, 1);
   }
 }
 
-.login {
+.loginForm {
+  margin: 0px auto;
+  background: white;
+  border: 5px solid $border;
+  width: 400px;
+  min-height: 260px;
+  border-radius: 10px;
+  h2 {
+    margin: 0px;
+  }
+  input {
+    display: block;
+    margin: 20px auto;
+    line-height: 37px;
+    font-size: 1.7rem;
+  }
+  .loginButton {
+    height: 55px;
+    width: 125px;
+    background: $background;
+    color: white;
+    border-radius: 25px;
+    line-height: 55px;
+    font-size: 1.8rem;
+    border: 3px solid $border;
+    border-radius: 25px;
+    box-shadow: 2px 2px 3px #000;
+  }
 }
