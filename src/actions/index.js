@@ -5,6 +5,7 @@ export const LOGIN_FAIL = "LOGIN_FAIL";
 export const SYCH_CALL = "SYCH_CALL";
 export const HANDLE_CHANGE = "HANDLE_CHANGE";
 export const FARMER_CHANGE = "FARMER_CHANGE";
+export const LOG_OUT = "LOG_OUT";
 
 export const login = state => dispatch => {
   dispatch({ type: LOGIN_START });
@@ -48,6 +49,12 @@ export const farmerAC = e => dispatch => {
   dispatch({
     type: FARMER_CHANGE,
     payload: e.target.value == "true" ? true : false
+  });
+};
+
+export const logoutAC = () => dispatch => {
+  dispatch({
+    type: LOG_OUT
   });
 };
 

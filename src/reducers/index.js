@@ -3,7 +3,8 @@ import {
   LOGIN_SUCCESS,
   LOGIN_FAIL,
   HANDLE_CHANGE,
-  FARMER_CHANGE
+  FARMER_CHANGE,
+  LOG_OUT
 } from "../actions";
 // import { combineReducers } from "redux";
 // import { connectRouter } from "connected-react-router";
@@ -26,12 +27,11 @@ const initialState = {
     password: ""
   },
   consumer: {
+    city_id: "",
+    email: "",
     id: "",
-    shipping_address: "",
-    purchase_date: "",
-    delivered: "",
-    consumer_id: "",
-    orders: []
+    state_id: "",
+    username: ""
   }
 };
 
@@ -43,7 +43,19 @@ export const reducer = (state = initialState, action) => {
       return { ...state, authLoading: true };
     case LOGIN_SUCCESS:
       console.log("LOGINSUCCESS", action.payload);
-      return { ...state, authLoading: false };
+      return {
+        ...state,
+        authLoading: false,
+        consumer_id: action.payload.user.id,
+        credentials: { username: "", password: "" },
+        consumer: {
+          city_id: action.payload.user.city_id,
+          email: action.payload.user.email,
+          id: action.payload.user.id,
+          state_id: action.payload.user.state_id,
+          username: action.payload.user.username
+        }
+      };
     case LOGIN_FAIL:
       console.log("LOGINFAIL", action.payload);
       return state;
@@ -60,6 +72,17 @@ export const reducer = (state = initialState, action) => {
       return {
         ...state,
         farmer: action.payload
+      };
+    case LOG_OUT:
+      return {
+        ...state,
+        consumer: {
+          city_id: "",
+          email: "",
+          id: "",
+          state_id: "",
+          username: ""
+        }
       };
     default:
       return state;
