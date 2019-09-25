@@ -11,8 +11,11 @@ function Header(props) {
 
   const logOutHandle = () => {
     localStorage.setItem("token", "");
+    localStorage.setItem("id", "");
+    localStorage.setItem("farmer", "");
     props.logoutAC();
   };
+  console.log(props);
   return (
     <div className="header">
       <div className="title">
@@ -35,11 +38,16 @@ function Header(props) {
           </Link>
         )}
 
-        {localStorage.getItem("token") !== "" && (
-          <Link to="/dashboard" className="link">
-            Cart
-          </Link>
-        )}
+        {localStorage.getItem("token") !== "" &&
+          (props.isFarmer ? (
+            <Link to="/inventory" className="link">
+              Stock
+            </Link>
+          ) : (
+            <Link to="/dashboard" className="link">
+              Cart
+            </Link>
+          ))}
 
         {localStorage.getItem("token") === "" ? (
           <Link to="/login" className="link">
@@ -57,7 +65,8 @@ function Header(props) {
 
 const mapStateToProps = state => {
   return {
-    consumer: state.consumer
+    consumer: state.user,
+    isFarmer: state.isFarmer
   };
 };
 
