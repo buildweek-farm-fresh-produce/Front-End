@@ -12,7 +12,7 @@ export const ERROR_USER = "ERROR_USER";
 export const getUserData = state => dispatch => {
   const getUserDataAPI =
     localStorage.getItem("farmer") === "true"
-      ? "/api/famers/"
+      ? "/api/farmers/"
       : "/api/consumers/";
   axiosWithAuth()
     .get(getUserDataAPI + localStorage.getItem("id"))
