@@ -88,7 +88,7 @@ export const reducer = (state = initialState, action) => {
         }
       };
     case GET_USER:
-      console.log("GOTUSER", action.payload);
+      // console.log("GOTUSER", action.payload);
 
       return {
         ...state,

@@ -15,9 +15,9 @@ import { getUserData } from "./actions";
 
 function App(props) {
   useEffect(() => {
-    console.log("APP", props);
+    // console.log("APP", props);
     if (localStorage.getItem("token") !== "" && props.state.user.id === "") {
-      props.getUserData(localStorage.getItem("id"));
+      props.getUserData();
     }
   }, []);
 

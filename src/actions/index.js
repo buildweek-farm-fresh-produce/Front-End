@@ -10,10 +10,14 @@ export const GET_USER = "GET_USER";
 export const ERROR_USER = "ERROR_USER";
 
 export const getUserData = state => dispatch => {
+  const getUserDataAPI =
+    localStorage.getItem("farmer") === "true"
+      ? "/api/famers/"
+      : "/api/consumers/";
   axiosWithAuth()
-    .get(`/api/consumers/${localStorage.getItem("id")}`)
+    .get(getUserDataAPI + localStorage.getItem("id"))
     .then(res => {
-      console.log("USERDATA-APP", res.data);
+      // console.log("USERDATA-APP", res.data);
       dispatch({
         type: GET_USER,
         payload: res.data
