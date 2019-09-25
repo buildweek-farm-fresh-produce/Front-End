@@ -8,7 +8,6 @@ function Main() {
       <h2>
         Put some information and introduction in the main body of the page
       </h2>
-      <a href="/dashboard">Go To Customer Dashboard</a>
     </div>
   );
 }

@@ -32,7 +32,15 @@ const initialState = {
     id: "",
     state_id: "",
     username: ""
-  }
+  },
+  farmer: {
+    city_id: "",
+    email: "",
+    id: "",
+    state_id: "",
+    username: ""
+  },
+  isFarmer: false
 };
 
 export const reducer = (state = initialState, action) => {
@@ -42,23 +50,24 @@ export const reducer = (state = initialState, action) => {
       // console.log("LOGIN START");
       return { ...state, authLoading: true };
     case LOGIN_SUCCESS:
-      // console.log("LOGINSUCCESS", action.payload);
+      console.log("LOGINSUCCESS", action.payload);
       return {
         ...state,
+        isFarmer: action.payload.farmer,
         authLoading: false,
-        consumer_id: action.payload.user.id,
+        consumer_id: action.payload.data.user.id,
         credentials: { username: "", password: "" },
         consumer: {
-          city_id: action.payload.user.city_id,
-          email: action.payload.user.email,
-          id: action.payload.user.id,
-          state_id: action.payload.user.state_id,
-          username: action.payload.user.username
+          city_id: action.payload.data.user.city_id,
+          email: action.payload.data.user.email,
+          id: action.payload.data.user.id,
+          state_id: action.payload.data.user.state_id,
+          username: action.payload.data.user.username
         }
       };
     case LOGIN_FAIL:
       // console.log("LOGINFAIL", action.payload);
-      return state;
+      return { ...state, authLoading: false };
     case HANDLE_CHANGE:
       // console.log("REDUCECRED", state.credentials, action.payload);
       return {
