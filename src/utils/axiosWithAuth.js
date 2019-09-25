@@ -5,6 +5,7 @@ export const axiosWithAuth = () => {
 
   return axios.create({
     baseURL: "https://farm-fresh-bw.herokuapp.com",
+    // baseURL: "http://localhost:4000",
     headers: {
       Authorization: token
     }
