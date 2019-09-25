@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import { logoutAC } from "../actions";
 
 function Header(props) {
-  console.log(props.consumer);
+  // console.log(props.consumer);
 
   const logOutHandle = () => {
     localStorage.setItem("token", "");

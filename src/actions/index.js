@@ -9,7 +9,7 @@ export const LOG_OUT = "LOG_OUT";
 
 export const login = state => dispatch => {
   dispatch({ type: LOGIN_START });
-  console.log("LOGINCRED", state);
+  // console.log("LOGINCRED", state);
   const loginURL = state.farmer
     ? "/api/auth/farmer/login"
     : "/api/auth/shop/login";
