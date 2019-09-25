@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from "react";
 import "./App.scss";
 import axios from "axios";
@@ -9,15 +10,23 @@ import Main from "./components/Main.js";
 import Login from "./components/Login.js";
 import PrivateRoute from "./components/PrivateRoute.js";
 import CustomerDashboard from "./components/CustomerDashboard.js";
+import FarmerDashboard from "./components/FarmerDashboard.js";
 import OrderDetail from "./components/order/OrderDetail";
-// import Register from "./components/Register.js";
 import FormikSignUp from "./components/Signup";
 import { ShopList } from "./components/Shop/ShopList";
 import InventoryCard from "./components/InventoryCard";
 import Inventory from "./components/Inventory";
+import { getUserData } from "./actions";
 
 function App() {
-
+  
+  useEffect(() => {
+    // console.log("APP", props);
+    if (localStorage.getItem("token") !== "" && props.state.user.id === "") {
+      props.getUserData();
+    }
+  }, []);
+  
   const [inventory, setInventory] = useState([]);
   useEffect(() => {
   
@@ -31,7 +40,6 @@ function App() {
   
   },[])
   
-
   return (
     <div className="App">
       <Header />
@@ -42,6 +50,7 @@ function App() {
           {/* <Route exact path="/register" component={Register} /> */}
           <Route exact path="/signup" component={FormikSignUp} />
           <PrivateRoute exact path="/dashboard" component={CustomerDashboard} />
+          <PrivateRoute exact path="/farmer" component={FarmerDashboard} />
           <PrivateRoute exact path="/dashboard/:id" component={OrderDetail} />
           <PrivateRoute exact path="/shop" component={ShopList} />
           <Route exact path="/inventory" render={props => (<InventoryCard {...props} items={inventory}/>)} />
@@ -54,11 +63,12 @@ function App() {
 
 const mapStateToProps = state => {
   return {
-    stateObj: state.Obj
+    state: state
   };
 };
 
 export default connect(
   mapStateToProps,
-  {}
+  { getUserData }
 )(App);
+
