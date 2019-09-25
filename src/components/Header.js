@@ -36,6 +36,7 @@ function Header(props) {
         <Link to="/signup" className="link">
           SignUp
         </Link>
+        <Link to='/shop' className='link'>Shop</Link>
       </div>
     </div>
   );

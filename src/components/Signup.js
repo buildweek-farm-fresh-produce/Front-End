@@ -3,6 +3,7 @@ import { withFormik, Form, Field } from "formik"; //withFormik is used to create
 import * as Yup from "yup";
 import "../App.scss";
 import styled from "styled-components";
+import axios from "axios";
 
 //styled componets
 const SyledMainDiv = styled.div`
@@ -157,7 +158,7 @@ const SignUp = props => {
             <Field type="password" name="password" placeholder="Password" />
           </label>
         </PasswordDiv>
-        <StateDiv>
+        {/* <StateDiv>
           <label>
             <h2>State:</h2>
             <Field type="state" name="state" placeholder="State" />
@@ -168,18 +169,18 @@ const SignUp = props => {
             <h2>Address:</h2>
             <Field type="address" name="address" placeholder="Address" />
           </label>
-        </AddressDiv>
+        </AddressDiv> */}
         <RadioButtons>
           <div>
             <label>
               <h2>Customer:</h2>
             </label>
             <input
-              name="test"
+              name="type"
               value="false"
               type="radio"
-              checked={values.test === "Customer"}
-              onChange={() => setFieldValue("test", "Customer")}
+              checked={values.type === "Customer"}
+              onChange={() => setFieldValue("type", "Customer")}
             />
           </div>
           <div>
@@ -187,11 +188,11 @@ const SignUp = props => {
               <h2>Farmer:</h2>
             </label>
             <input
-              name="test"
+              name="type"
               type="radio"
               value="true"
-              checked={values.test === "Farmer"}
-              onChange={() => setFieldValue("test", "Farmer")}
+              checked={values.type === "Farmer"}
+              onChange={() => setFieldValue("type", "Farmer")}
             />
           </div>
         </RadioButtons>
@@ -203,13 +204,13 @@ const SignUp = props => {
   );
 };
 const FormikSignUp = withFormik({
-  mapPropsToValues({ username, email, password, state, address }) {
+  mapPropsToValues({ username, email, password }) {
     return {
       username: username || "",
       email: email || "",
       password: password || "",
-      state: state || "",
-      address: address || ""
+      city_id: "1",
+      state_id: "1"
     };
   },
   validationSchema: Yup.object().shape({
@@ -221,16 +222,32 @@ const FormikSignUp = withFormik({
       .min(9, "Password must be 9 characters or more")
       .required("Password is required")
   }),
-  handleSubmit(values, { resetForm, setSubmitting, setErrors }) {
-    setTimeout(() => {
-      if (values.email === "tolu@test.com") {
-        setErrors({ email: "The Email is taken" });
-      } else {
-        resetForm();
-      }
-      setSubmitting(false);
-    }, 2000);
-    console.log(values);
+  handleSubmit(values, { setStatus, resetForm, setSubmitting, setErrors }) {
+    let testObj = {
+      username: values.username || "",
+      email: values.email || "",
+      password: values.password || "",
+      city_id: "1",
+      state_id: "1"
+    };
+      
+let API;
+    values.type === "Customer"
+      ? ( API = "https://farm-fresh-bw.herokuapp.com/api/auth/farmer/register")
+      : ( API = "https://farm-fresh-bw.herokuapp.com/api/auth/shop/register")
+
+    axios
+      .post(API, testObj)
+      .then(res => {
+        setStatus(res.data);
+        console.log(testObj);
+        console.log(res.data);
+      })
+
+      .catch(err => {
+        console.log(testObj);
+        console.log(err);
+      });
   }
 })(SignUp);
 
