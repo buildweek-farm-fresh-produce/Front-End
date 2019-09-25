@@ -1,5 +1,8 @@
-import React, { useEffect } from "react";
+
+import React, { useState, useEffect } from "react";
 import "./App.scss";
+import axios from "axios";
+import { axiosWithAuth } from "./utils/axiosWithAuth";
 import { connect } from "react-redux";
 import { Route, Switch } from "react-router-dom";
 import Header from "./components/Header.js";
@@ -11,16 +14,32 @@ import FarmerDashboard from "./components/FarmerDashboard.js";
 import OrderDetail from "./components/order/OrderDetail";
 import FormikSignUp from "./components/Signup";
 import { ShopList } from "./components/Shop/ShopList";
+import InventoryCard from "./components/InventoryCard";
+import Inventory from "./components/Inventory";
 import { getUserData } from "./actions";
 
-function App(props) {
+function App() {
+  
   useEffect(() => {
     // console.log("APP", props);
     if (localStorage.getItem("token") !== "" && props.state.user.id === "") {
       props.getUserData();
     }
   }, []);
-
+  
+  const [inventory, setInventory] = useState([]);
+  useEffect(() => {
+  
+  axios
+  .get( `https://farm-fresh-bw.herokuapp.com/api/farmers/produce/${localStorage.getItem("id")}`)
+  .then(response => {
+  console.log("farmer response:", response.data.current_stock)
+  setInventory(response.data.current_stock)
+  })
+  .catch(err => console.log(err));
+  
+  },[])
+  
   return (
     <div className="App">
       <Header />
@@ -34,6 +53,8 @@ function App(props) {
           <PrivateRoute exact path="/farmer" component={FarmerDashboard} />
           <PrivateRoute exact path="/dashboard/:id" component={OrderDetail} />
           <PrivateRoute exact path="/shop" component={ShopList} />
+          <Route exact path="/inventory" render={props => (<InventoryCard {...props} items={inventory}/>)} />
+          <Route exact path="inventory/:id" render={props => <Inventory {...props} items={inventory} />}/>
         </Switch>
       </div>
     </div>
@@ -50,3 +71,4 @@ export default connect(
   mapStateToProps,
   { getUserData }
 )(App);
+

@@ -127,3 +127,37 @@
   margin-right: 5px;
   margin-top: 20px;
 }
+
+
+
+.farmer-card-wrapper {
+  margin-top: 36px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  h1 {
+  margin-bottom: 4rem;
+  color: #778855
+  }
+
+  .cards-div {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 6rem;
+  }
+
+  .farmer-card {
+    width: 250px;
+    margin: 0 10px 32px;
+    text-align: center;
+    cursor: pointer;
+  }
+
+  .produce-img {
+  width: 100%;
+  border: 1px solid lightgray;
+  border-radius: .2rem;
+  }
+}
+
