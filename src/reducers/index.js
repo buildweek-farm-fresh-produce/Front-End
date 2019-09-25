@@ -4,7 +4,9 @@ import {
   LOGIN_FAIL,
   HANDLE_CHANGE,
   FARMER_CHANGE,
-  LOG_OUT
+  LOG_OUT,
+  GET_USER,
+  ERROR_USER
 } from "../actions";
 // import { combineReducers } from "redux";
 // import { connectRouter } from "connected-react-router";
@@ -26,13 +28,14 @@ const initialState = {
     username: "",
     password: ""
   },
-  consumer: {
+  user: {
     city_id: "",
     email: "",
     id: "",
     state_id: "",
     username: ""
-  }
+  },
+  isFarmer: false
 };
 
 export const reducer = (state = initialState, action) => {
@@ -45,20 +48,20 @@ export const reducer = (state = initialState, action) => {
       // console.log("LOGINSUCCESS", action.payload);
       return {
         ...state,
+        isFarmer: action.payload.farmer,
         authLoading: false,
-        consumer_id: action.payload.user.id,
         credentials: { username: "", password: "" },
-        consumer: {
-          city_id: action.payload.user.city_id,
-          email: action.payload.user.email,
-          id: action.payload.user.id,
-          state_id: action.payload.user.state_id,
-          username: action.payload.user.username
+        user: {
+          city_id: action.payload.data.user.city_id,
+          email: action.payload.data.user.email,
+          id: action.payload.data.user.id,
+          state_id: action.payload.data.user.state_id,
+          username: action.payload.data.user.username
         }
       };
     case LOGIN_FAIL:
       // console.log("LOGINFAIL", action.payload);
-      return state;
+      return { ...state, authLoading: false };
     case HANDLE_CHANGE:
       // console.log("REDUCECRED", state.credentials, action.payload);
       return {
@@ -76,7 +79,7 @@ export const reducer = (state = initialState, action) => {
     case LOG_OUT:
       return {
         ...state,
-        consumer: {
+        user: {
           city_id: "",
           email: "",
           id: "",
@@ -84,6 +87,22 @@ export const reducer = (state = initialState, action) => {
           username: ""
         }
       };
+    case GET_USER:
+      // console.log("GOTUSER", action.payload);
+
+      return {
+        ...state,
+        user: {
+          city_id: state.isFarmer ? action.payload.city_id : "",
+          email: action.payload.email,
+          id: action.payload.id,
+          state_id: action.payload.state_id,
+          username: action.payload.username
+        }
+      };
+    case ERROR_USER:
+      console.log("GOTUSER-ERROR");
+      return state;
     default:
       return state;
   }

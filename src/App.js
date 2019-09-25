@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./App.scss";
 import { connect } from "react-redux";
 import { Route, Switch } from "react-router-dom";
@@ -7,12 +7,20 @@ import Main from "./components/Main.js";
 import Login from "./components/Login.js";
 import PrivateRoute from "./components/PrivateRoute.js";
 import CustomerDashboard from "./components/CustomerDashboard.js";
+import FarmerDashboard from "./components/FarmerDashboard.js";
 import OrderDetail from "./components/order/OrderDetail";
-// import Register from "./components/Register.js";
 import FormikSignUp from "./components/Signup";
 import { ShopList } from "./components/Shop/ShopList";
+import { getUserData } from "./actions";
 
-function App() {
+function App(props) {
+  useEffect(() => {
+    // console.log("APP", props);
+    if (localStorage.getItem("token") !== "" && props.state.user.id === "") {
+      props.getUserData();
+    }
+  }, []);
+
   return (
     <div className="App">
       <Header />
@@ -23,6 +31,7 @@ function App() {
           {/* <Route exact path="/register" component={Register} /> */}
           <Route exact path="/signup" component={FormikSignUp} />
           <PrivateRoute exact path="/dashboard" component={CustomerDashboard} />
+          <PrivateRoute exact path="/farmer" component={FarmerDashboard} />
           <PrivateRoute exact path="/dashboard/:id" component={OrderDetail} />
           <PrivateRoute exact path="/shop" component={ShopList} />
         </Switch>
@@ -33,11 +42,11 @@ function App() {
 
 const mapStateToProps = state => {
   return {
-    stateObj: state.Obj
+    state: state
   };
 };
 
 export default connect(
   mapStateToProps,
-  {}
+  { getUserData }
 )(App);
