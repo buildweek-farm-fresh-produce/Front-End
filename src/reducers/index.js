@@ -42,7 +42,7 @@ export const reducer = (state = initialState, action) => {
       // console.log("LOGIN START");
       return { ...state, authLoading: true };
     case LOGIN_SUCCESS:
-      console.log("LOGINSUCCESS", action.payload);
+      // console.log("LOGINSUCCESS", action.payload);
       return {
         ...state,
         authLoading: false,
@@ -57,7 +57,7 @@ export const reducer = (state = initialState, action) => {
         }
       };
     case LOGIN_FAIL:
-      console.log("LOGINFAIL", action.payload);
+      // console.log("LOGINFAIL", action.payload);
       return state;
     case HANDLE_CHANGE:
       // console.log("REDUCECRED", state.credentials, action.payload);
