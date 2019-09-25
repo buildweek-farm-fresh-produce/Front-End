@@ -22,9 +22,11 @@ export const getUserData = state => dispatch => {
         type: GET_USER,
         payload: res.data
       });
+      return true;
     })
     .catch(err => {
       console.log(err);
+      return false;
     });
 };
 
@@ -34,7 +36,7 @@ export const login = state => dispatch => {
   const loginURL = state.farmer
     ? "/api/auth/farmer/login"
     : "/api/auth/shop/login";
-  axiosWithAuth()
+  return axiosWithAuth()
     .post(loginURL, state.credentials)
     .then(res => {
       // console.log("LoginRES", res.data);
@@ -46,13 +48,16 @@ export const login = state => dispatch => {
         type: LOGIN_SUCCESS,
         payload: { data: res.data, farmer: state.farmer }
       });
+      return true;
     })
     .catch(err => {
       dispatch({
         type: LOGIN_FAIL,
         payload: err
       });
+      return false;
     });
+
   // localStorage.setItem(
   //   "token",
   //   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoicGd1c2VyMTAwMCIsInVzZXJUeXBlIjoiY29uc3VtZXIiLCJpYXQiOjE1NjkzNDYyMDUsImV4cCI6MTU2OTQzMjYwNX0.Q7288qA2pd9oxiGEvBfSwwuwVOO9HDVD_A49a_3ejUE"

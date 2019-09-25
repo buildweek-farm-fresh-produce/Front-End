@@ -94,16 +94,26 @@
   }
 }
 
-.orderPrev {
-  border: 1px solid $border;
+.orderCard {
   background-color: white;
+  border: 4px solid $border;
+  border-radius: 10px;
   width: 400px;
   margin: 10px auto;
-  .list {
-    display: flex;
-    justify-content: space-between;
+
+  .orderPrev {
+    .list {
+      display: flex;
+      justify-content: space-between;
+      // line-height: 5px;
+    }
+  }
+  .cartButton {
+    margin: 0px auto;
+    width: 250px;
   }
 }
+
 .orderDetail {
   border: 1px solid $border;
   background-color: white;
@@ -130,8 +140,6 @@
   margin-top: 20px;
 }
 
-
-
 .farmer-card-wrapper {
   margin-top: 36px;
   display: flex;
@@ -139,8 +147,8 @@
   justify-content: center;
 
   h1 {
-  margin-bottom: 4rem;
-  color: #778855
+    margin-bottom: 4rem;
+    color: #778855;
   }
 
   .cards-div {
@@ -157,9 +165,8 @@
   }
 
   .produce-img {
-  width: 100%;
-  border: 1px solid lightgray;
-  border-radius: .2rem;
+    width: 100%;
+    border: 1px solid lightgray;
+    border-radius: 0.2rem;
   }
 }
-

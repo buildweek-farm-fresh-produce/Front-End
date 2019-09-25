@@ -3,6 +3,7 @@ import "../App.scss";
 import { connect } from "react-redux";
 // import { axiosWithAuth } from "../utils/axiosWithAuth";
 import Order from "./order/Order";
+import Cart from "./order/Cart";
 
 function CustomerDashboard() {
   useEffect(props => {
@@ -21,10 +22,12 @@ function CustomerDashboard() {
     <div>
       <h2>Welcome to the Customer Dashboard!</h2>
       <div className="orders">
-        <h3>Current Orders</h3>
+        <h3>Shopping Cart</h3>
+        <Cart />
+        <h3>Past Orders</h3>
         <Order
           orders={orders.filter(item => {
-            if (item.consumer_id === 1) {
+            if (item.consumer_id === localStorage.getItem("id")) {
               return item;
             }
           })}

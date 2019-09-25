@@ -4,15 +4,21 @@ import { connect } from "react-redux";
 
 const Order = props => {
   console.log("Orders", props.orders);
+  let returnEmpty = false;
+  if (props.orders.length === 0) {
+    returnEmpty = true;
+  }
+  console.log(returnEmpty);
   return (
     <div className="orderCard">
+      {returnEmpty && <h3>No Previous Orders</h3>}
       {props.orders.map(item => {
         return (
           <div className="orderPrev">
             <a href={`/dashboard/${item.id}`} className="list">
-              <p>{item.purchase_date}</p>
-              <p>{item.delivered}</p>
-              <p>{item.consumer_id}</p>
+              <span>{item.purchase_date}</span>
+              <span>{item.delivered}</span>
+              <span>{item.consumer_id}</span>
             </a>
           </div>
         );
