@@ -38,7 +38,7 @@ const mapStateToProps = state => {
   return {
     credentials: state.credentials,
     authLoading: state.authLoading,
-    farmer: state.farmer
+    user: state.user
   };
 };
 

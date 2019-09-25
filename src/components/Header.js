@@ -12,6 +12,7 @@ function Header(props) {
   const logOutHandle = () => {
     localStorage.setItem("token", "");
     localStorage.setItem("id", "");
+    localStorage.setItem("farmer", "");
     props.logoutAC();
   };
   console.log(props);
@@ -64,7 +65,7 @@ function Header(props) {
 
 const mapStateToProps = state => {
   return {
-    consumer: state.consumer,
+    consumer: state.user,
     isFarmer: state.isFarmer
   };
 };

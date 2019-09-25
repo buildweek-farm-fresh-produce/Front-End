@@ -11,10 +11,14 @@ import FarmerDashboard from "./components/FarmerDashboard.js";
 import OrderDetail from "./components/order/OrderDetail";
 import FormikSignUp from "./components/Signup";
 import { ShopList } from "./components/Shop/ShopList";
+import { getUserData } from "./actions";
 
 function App(props) {
   useEffect(() => {
-    console.log(props);
+    console.log("APP", props);
+    if (localStorage.getItem("token") !== "" && props.state.user.id === "") {
+      props.getUserData(localStorage.getItem("id"));
+    }
   }, []);
 
   return (
@@ -44,5 +48,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  {}
+  { getUserData }
 )(App);

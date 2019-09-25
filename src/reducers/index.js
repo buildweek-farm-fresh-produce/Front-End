@@ -4,7 +4,9 @@ import {
   LOGIN_FAIL,
   HANDLE_CHANGE,
   FARMER_CHANGE,
-  LOG_OUT
+  LOG_OUT,
+  GET_USER,
+  ERROR_USER
 } from "../actions";
 // import { combineReducers } from "redux";
 // import { connectRouter } from "connected-react-router";
@@ -26,14 +28,7 @@ const initialState = {
     username: "",
     password: ""
   },
-  consumer: {
-    city_id: "",
-    email: "",
-    id: "",
-    state_id: "",
-    username: ""
-  },
-  farmer: {
+  user: {
     city_id: "",
     email: "",
     id: "",
@@ -50,14 +45,13 @@ export const reducer = (state = initialState, action) => {
       // console.log("LOGIN START");
       return { ...state, authLoading: true };
     case LOGIN_SUCCESS:
-      console.log("LOGINSUCCESS", action.payload);
+      // console.log("LOGINSUCCESS", action.payload);
       return {
         ...state,
         isFarmer: action.payload.farmer,
         authLoading: false,
-        consumer_id: action.payload.data.user.id,
         credentials: { username: "", password: "" },
-        consumer: {
+        user: {
           city_id: action.payload.data.user.city_id,
           email: action.payload.data.user.email,
           id: action.payload.data.user.id,
@@ -85,7 +79,7 @@ export const reducer = (state = initialState, action) => {
     case LOG_OUT:
       return {
         ...state,
-        consumer: {
+        user: {
           city_id: "",
           email: "",
           id: "",
@@ -93,6 +87,22 @@ export const reducer = (state = initialState, action) => {
           username: ""
         }
       };
+    case GET_USER:
+      console.log("GOTUSER", action.payload);
+
+      return {
+        ...state,
+        user: {
+          city_id: state.isFarmer ? action.payload.city_id : "",
+          email: action.payload.email,
+          id: action.payload.id,
+          state_id: action.payload.state_id,
+          username: action.payload.username
+        }
+      };
+    case ERROR_USER:
+      console.log("GOTUSER-ERROR");
+      return state;
     default:
       return state;
   }
