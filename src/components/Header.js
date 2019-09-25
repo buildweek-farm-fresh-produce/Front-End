@@ -39,8 +39,8 @@ function Header(props) {
         )}
 
         {localStorage.getItem("token") !== "" &&
-          (props.isFarmer ? (
-            <Link to="/farmer" className="link">
+          (localStorage.getItem("farmer") ? (
+            <Link to="/inventory" className="link">
               Stock
             </Link>
           ) : (
