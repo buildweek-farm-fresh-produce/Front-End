@@ -1,10 +1,131 @@
+@import "/css/variables";
 .App {
   text-align: center;
+  background-image: url(./img/background2.png);
+  min-height: 800px;
+  padding-top: 10px;
 }
 
 .header {
-  background: #aaa;
   height: 250px;
+  .title {
+    color: #ff5757;
+    border: 5px solid $border;
+    width: 600px;
+    margin: 0px auto;
+    background: white;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    img {
+      width: 50px;
+      margin: 0px 15px;
+    }
+  }
+  .navBar {
+    margin: 10px auto;
+    border: 5px solid #a4a37a;
+    width: 600px;
+    background: white;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 10px;
+    .link {
+      width: 120px;
+      color: white;
+      background: $background;
+      border: 3px solid $border;
+      border-radius: 25px;
+      box-shadow: 2px 2px 3px #000;
+      line-height: 40px;
+      font-family: "Playfair Display", serif;
+    }
+  }
+}
+
+.loginForm {
+  margin: 0px auto;
+  background: white;
+  border: 5px solid $border;
+  width: 400px;
+  min-height: 280px;
+  border-radius: 10px;
+  h2 {
+    margin: 0px;
+  }
+  input {
+    display: block;
+    margin: 20px auto 0px;
+    line-height: 37px;
+    font-size: 1.7rem;
+  }
+  .loginButton {
+    height: 55px;
+    width: 125px;
+    background: $background;
+    color: white;
+    border-radius: 25px;
+    line-height: 55px;
+    font-size: 1.8rem;
+    border: 3px solid $border;
+    border-radius: 25px;
+    box-shadow: 2px 2px 3px #000;
+    font-family: "Playfair Display", serif;
+  }
+  .radio {
+    font-size: 1.4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    div {
+      margin: 10px 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      label {
+        margin-right: 10px;
+      }
+      input {
+        margin-top: 6px;
+      }
+    }
+  }
+}
+
+.orderPrev {
+  border: 1px solid $border;
+  background-color: white;
+  width: 400px;
+  margin: 10px auto;
+  .list {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+.orderDetail {
+  border: 1px solid $border;
+  background-color: white;
+  width: 500px;
+  margin: 10px auto;
+  border-radius: 10px;
+  .itemList {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+.button {
+  width: 100px;
+  height: 30px;
+  color: white;
+  background: $background;
+  border: 3px solid $border;
+  border-radius: 25px;
+  box-shadow: 2px 2px 3px #000;
+  line-height: 30px;
+  font-family: "Playfair Display", serif;
+  font-size: 1.4rem;
+  margin-right: 5px;
+  margin-top: 20px;
 }
 
 

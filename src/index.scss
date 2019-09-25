@@ -1,13 +1,36 @@
+@import "/css/variables";
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+  font-family: -apple-system, BlinkMacSystemFont, "Playfair Display", serif,
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-size: 62.5%;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+h1 {
+  font-family: "Mansalva", cursive;
+  font-size: 2.7rem;
+  color: $smallText;
+}
+
+h2,
+h3 {
+  font-family: "Playfair Display", serif;
+  font-size: 1.8rem;
+}
+
+p {
+  font-family: "Big Shoulders Text", cursive;
+  font-size: 1.4rem;
+}
+
+a {
+  text-decoration: none;
+  font-size: 1.6rem;
+  color: black;
 }

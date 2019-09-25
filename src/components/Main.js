@@ -5,9 +5,15 @@ import { connect } from "react-redux";
 function Main() {
   return (
     <div>
-      <h1>
+      <h2>
         Put some information and introduction in the main body of the page
-      </h1>
+      </h2>
+      <a href="/dashboard">Go To Dashboard</a>
+      
+      <div>
+      <a href="/login">Go To Login</a>
+      </div>
+      
     </div>
   );
 }

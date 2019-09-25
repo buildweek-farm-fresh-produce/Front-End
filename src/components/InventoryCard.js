@@ -1,74 +1,29 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
+function InventoryCard(props) {
 
-function InventoryCard() {
 
 
     return (
-  <div className="farmer-card-wrapper">
-  <h1>INVENTORY</h1>
-  <div className="cards-div">
-  <div className="farmer-card">
-  <img className="produce-img" src="https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80'"  alt="apples"/>
-  <p> Fuji Apples</p>
-  <p>Price: 2.99</p>
-  <p>Stock: 20 bushels</p>
-  </div>
-
-  <div className="farmer-card">
-  <img className="produce-img" src="https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80'"  alt="apples"/>
-  <p> Fuji Apples</p>
-  <p>Price: 2.99</p>
-  <p>Stock: 20 bushels</p>
-  </div>
-
-  <div className="farmer-card">
-  <img className="produce-img" src="https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80'"  alt="apples"/>
-  <p> Fuji Apples</p>
-  <p>Price: 2.99</p>
-  <p>Stock: 20 bushels</p>
-  </div>
-
-  <div className="farmer-card">
-  <img className="produce-img" src="https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80'"  alt="apples"/>
-  <p>Fuji Apples</p>
-  <p>Price: 2.99</p>
-  <p>Stock: 20 bushels</p>
-  </div>
-
-  <div className="farmer-card">
-  <img className="produce-img" src="https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80'"  alt="apples"/>
-  <p>Fuji Apples</p>
-  <p>Price: 2.99</p>
-  <p>Stock: 20 bushels</p>
-  </div>
-
-  <div className="farmer-card">
-  <img className="produce-img" src="https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80'"  alt="apples"/>
-  <p>Fuji Apples</p>
-  <p>Price: 2.99</p>
-  <p>Stock: 20 bushels</p>
-  </div>
-
-  <div className="farmer-card">
-  <img className="produce-img" src="https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80'"  alt="apples"/>
-  <p>Fuji Apples</p>
-  <p>Price: 2.99</p>
-  <p>Stock: 20 bushels</p>
-  </div>
-
-  <div className="farmer-card">
-  <img className="produce-img" src="https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80'"  alt="apples"/>
-  <p>Fuji Apples</p>
-  <p>Price: 2.99</p>
-  <p>Stock: 20 bushels</p>
-  </div>
- 
-  
-  </div>
-  </div>
-
-  
- );
+    
+    <div className="farmer-card-wrapper">
+     <h1>INVENTORY</h1> 
+     {props.items.map(item => (
+    <div className="cards-div key={item.id}">
+    <div className="farmer-card">
+    <Link to={`item-list/${item.id}`}>
+    <img className="produce-img" src="https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80'" alt={item.name}/>
+    <p>{item.name}</p>
+    </Link>
+    <p>${item.price}</p>
+    <p>Quantity: {item.quantity}</p>
+    </div>
+    </div>
+    ))}
+    </div>
+    
+    )
+    
 }
-export default InventoryCard;
+  export default InventoryCard
