@@ -4,8 +4,15 @@ import "./Header.js";
 import tomato from "../img/tomato.svg";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import { logoutAC } from "../actions";
 
-function Header() {
+function Header(props) {
+  console.log(props.consumer);
+
+  const logOutHandle = () => {
+    localStorage.setItem("token", "");
+    props.logoutAC();
+  };
   return (
     <div className="header">
       <div className="title">
@@ -17,12 +24,15 @@ function Header() {
         <Link to="/" className="link">
           Home
         </Link>
-        <Link to="/login" className="link">
-          Login
-        </Link>
-        {/* <Link to="/register" className="link">
-          Register
-        </Link> */}
+        {localStorage.getItem("token") === "" ? (
+          <Link to="/login" className="link">
+            Login
+          </Link>
+        ) : (
+          <Link to="/" onClick={logOutHandle} className="link">
+            Logout
+          </Link>
+        )}
         <Link to="/signup" className="link">
           SignUp
         </Link>
@@ -33,11 +43,11 @@ function Header() {
 
 const mapStateToProps = state => {
   return {
-    stateObj: state.Obj
+    consumer: state.consumer
   };
 };
 
 export default connect(
   mapStateToProps,
-  {}
+  { logoutAC }
 )(Header);

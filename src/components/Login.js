@@ -14,7 +14,7 @@ const Login = props => {
 
   const submitLogin = e => {
     e.preventDefault();
-    props.login(props.credentials);
+    props.login(props);
   };
 
   const farmerRadio = e => {
@@ -65,7 +65,7 @@ const Login = props => {
         <button className="loginButton">Log In</button>
       </form>
       <div className="loading">
-        {props.isLoading && (
+        {props.authLoading && (
           <>
             <h2>Loading...</h2>
             <Loader type="Rings" color="green" height={80} width={80} />

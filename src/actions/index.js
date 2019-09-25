@@ -5,27 +5,32 @@ export const LOGIN_FAIL = "LOGIN_FAIL";
 export const SYCH_CALL = "SYCH_CALL";
 export const HANDLE_CHANGE = "HANDLE_CHANGE";
 export const FARMER_CHANGE = "FARMER_CHANGE";
+export const LOG_OUT = "LOG_OUT";
 
 export const login = state => dispatch => {
   dispatch({ type: LOGIN_START });
-  // console.log("LOGINCRED", state);
-  // axiosWithAuth()
-  //   .post("/api/auth/shop/login", state)
-  //   .then(res => {
-  //     // console.log("LoginRES", res.data);
-  //     dispatch({ type: LOGIN_SUCCESS, payload: res.data });
-  //   })
-  //   .catch(err => {
-  //     dispatch({
-  //       type: LOGIN_FAIL,
-  //       payload: err
-  //     });
-  //   });
-  localStorage.setItem(
-    "token",
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoicGd1c2VyMTAwMCIsInVzZXJUeXBlIjoiY29uc3VtZXIiLCJpYXQiOjE1NjkzNDYyMDUsImV4cCI6MTU2OTQzMjYwNX0.Q7288qA2pd9oxiGEvBfSwwuwVOO9HDVD_A49a_3ejUE"
-  );
-  dispatch({ type: LOGIN_SUCCESS, payload: "HI" });
+  console.log("LOGINCRED", state);
+  const loginURL = state.farmer
+    ? "/api/auth/farmer/login"
+    : "/api/auth/shop/login";
+  axiosWithAuth()
+    .post(loginURL, state.credentials)
+    .then(res => {
+      // console.log("LoginRES", res.data);
+      localStorage.setItem("token", res.data.token);
+      dispatch({ type: LOGIN_SUCCESS, payload: res.data });
+    })
+    .catch(err => {
+      dispatch({
+        type: LOGIN_FAIL,
+        payload: err
+      });
+    });
+  // localStorage.setItem(
+  //   "token",
+  //   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoicGd1c2VyMTAwMCIsInVzZXJUeXBlIjoiY29uc3VtZXIiLCJpYXQiOjE1NjkzNDYyMDUsImV4cCI6MTU2OTQzMjYwNX0.Q7288qA2pd9oxiGEvBfSwwuwVOO9HDVD_A49a_3ejUE"
+  // );
+  // dispatch({ type: LOGIN_SUCCESS, payload: "HI" });
 };
 
 export const handleChange = e => dispatch => {
@@ -44,6 +49,12 @@ export const farmerAC = e => dispatch => {
   dispatch({
     type: FARMER_CHANGE,
     payload: e.target.value == "true" ? true : false
+  });
+};
+
+export const logoutAC = () => dispatch => {
+  dispatch({
+    type: LOG_OUT
   });
 };
 
