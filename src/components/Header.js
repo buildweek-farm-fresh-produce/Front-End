@@ -24,6 +24,23 @@ function Header(props) {
         <Link to="/" className="link">
           Home
         </Link>
+
+        <Link to="/shop" className="link">
+          Shop
+        </Link>
+
+        {localStorage.getItem("token") === "" && (
+          <Link to="/signup" className="link">
+            SignUp
+          </Link>
+        )}
+
+        {localStorage.getItem("token") !== "" && (
+          <Link to="/dashboard" className="link">
+            Cart
+          </Link>
+        )}
+
         {localStorage.getItem("token") === "" ? (
           <Link to="/login" className="link">
             Login
@@ -33,10 +50,6 @@ function Header(props) {
             Logout
           </Link>
         )}
-        <Link to="/signup" className="link">
-          SignUp
-        </Link>
-        <Link to='/shop' className='link'>Shop</Link>
       </div>
     </div>
   );

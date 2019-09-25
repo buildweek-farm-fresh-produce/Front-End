@@ -10,7 +10,7 @@ import CustomerDashboard from "./components/CustomerDashboard.js";
 import OrderDetail from "./components/order/OrderDetail";
 // import Register from "./components/Register.js";
 import FormikSignUp from "./components/Signup";
-import {ShopList}  from './components/Shop/ShopList'
+import { ShopList } from "./components/Shop/ShopList";
 
 function App() {
   return (
@@ -24,7 +24,7 @@ function App() {
           <Route exact path="/signup" component={FormikSignUp} />
           <PrivateRoute exact path="/dashboard" component={CustomerDashboard} />
           <PrivateRoute exact path="/dashboard/:id" component={OrderDetail} />
-          <Route exact path='/shop' component={ShopList}/>
+          <PrivateRoute exact path="/shop" component={ShopList} />
         </Switch>
       </div>
     </div>
