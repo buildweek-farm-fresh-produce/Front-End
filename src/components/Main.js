@@ -5,10 +5,7 @@ import { connect } from "react-redux";
 function Main(props) {
   return (
     <div>
-      <h2>
-        Put some information and introduction in the main body of the page &{" "}
-        {props.user.id}
-      </h2>
+      <h2>Welcome to Farm Fresh Produce</h2>
     </div>
   );
 }

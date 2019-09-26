@@ -170,3 +170,20 @@
     border-radius: 0.2rem;
   }
 }
+
+.container {
+  display: flex;
+  justify-content: space-between;
+
+  .orders {
+    width: 80%;
+    height: 100vh;
+  }
+  .sideBar {
+    min-width: 300px;
+    width: 20%;
+    background: #fff;
+    border-radius: 10px;
+    border: 4px dashed $border;
+  }
+}

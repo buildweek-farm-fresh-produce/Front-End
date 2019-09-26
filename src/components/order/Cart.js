@@ -8,10 +8,9 @@ const Order = props => {
   if (props.cart.length === 0) {
     returnEmpty = true;
   }
-  console.log(returnEmpty);
   return (
     <div className="orderCard">
-      {returnEmpty && <h3>Cart Empty</h3>}
+      {returnEmpty && <h3>Your Cart Is Empty</h3>}
       <div className="orderPrev">
         {props.cart.map(item => {
           return (
