@@ -16,6 +16,7 @@ function Header(props) {
     props.logoutAC();
   };
   // console.log("HEADER", props);
+  console.log(localStorage.getItem("farmer").toString());
   return (
     <div className="header">
       <div className="title">
@@ -28,16 +29,18 @@ function Header(props) {
           Home
         </Link>
 
-        <Link to="/shop" className="link">
-          Shop
-        </Link>
+        {localStorage.getItem("token") !== "" &&
+          localStorage.getItem("farmer") === "false" && (
+            <Link to="/shop" className="link">
+              Shop
+            </Link>
+          )}
 
         {localStorage.getItem("token") === "" && (
           <Link to="/signup" className="link">
             SignUp
           </Link>
         )}
-
         {localStorage.getItem("token") !== "" &&
           (localStorage.getItem("farmer") === "true" ? (
             <Link to="/inventory" className="link">
@@ -48,7 +51,6 @@ function Header(props) {
               Cart
             </Link>
           ))}
-
         {localStorage.getItem("token") === "" ? (
           <Link to="/login" className="link">
             Login
