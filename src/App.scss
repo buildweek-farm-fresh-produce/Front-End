@@ -147,8 +147,13 @@
   justify-content: center;
 
   h1 {
-    margin-bottom: 4rem;
-    color: #778855;
+  margin-bottom: 4rem;
+  position: relative;
+  top: -3rem;
+  margin-left: 2rem;
+  color: #778855
+
+   
   }
 
   .cards-div {
@@ -159,9 +164,10 @@
 
   .farmer-card {
     width: 250px;
-    margin: 0 10px 32px;
+    margin: 6rem 0 0 -23rem;
     text-align: center;
     cursor: pointer;
+    
   }
 
   .produce-img {

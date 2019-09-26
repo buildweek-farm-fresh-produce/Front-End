@@ -18,6 +18,7 @@ import Inventory from "./components/Inventory";
 import { getUserData } from "./actions";
 
 function App(props) {
+  
   useEffect(() => {
     // console.log("APP", props);
     if (localStorage.getItem("token") !== "" && props.state.user.id === "") {
