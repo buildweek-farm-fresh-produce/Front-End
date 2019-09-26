@@ -30,12 +30,12 @@ export default function ShopCategory(props) {
   );
 }
 
+// Styled Components
 const CategoryItems = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
 `;
-
 const ShopState2 = styled.div`
   display: flex;
   flex-direction: row;

@@ -1,5 +1,7 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
+import "../../../src/App.scss";
 
 export default function ShopCard(props) {
   return (
@@ -10,13 +12,17 @@ export default function ShopCard(props) {
         <p>Price: {props.items.price}</p>
         <p>Category-No: {props.items.category_id}</p>
         <p>Farm-No: {props.items.farm_id}</p>
-        <p>Farm Name: {props.items.farm_name}</p>
+        <Link to="/inventory" className="link">
+          <h5>Farm Name: {props.items.farm_name}</h5>
+        </Link>
+
         <SubmitButton>Add to cart</SubmitButton>
       </div>
     </ShopCardDiv>
   );
 }
 
+//Styled Components
 const ShopCardDiv = styled.div`
   display: flex;
   flex-direction: row-gap;
@@ -37,6 +43,12 @@ const ShopCardDiv = styled.div`
     margin-left: 70px;
     width: 48%;
     flex-wrap: word-wrap;
+  }
+  .link:hover {
+    background-color: #fe0760;
+    color: tomato;
+    transform: translate(0px, -1px);
+    transition-duration: 0.2s;
   }
 `;
 const SubmitButton = styled.button`
