@@ -24,7 +24,7 @@ export const ShopList = () => {
   return (
     <div>
       <Header1Style>
-        <h2>Shop List Category</h2>
+        <h2>Shop Categories</h2>
       </Header1Style>
 
       <ShopState className="test">
@@ -68,7 +68,13 @@ const Header2Style = styled.h2`
   h3 {
     margin-left: 70px;
     font-size: 1.7rem;
-    
+  }
+  :hover {
+    background-color: #fe0760;
+    color: white;
+    border: solid #fe0760 4px;
+    transform: translate(0px, -1px);
+    transition-duration: 0.2s;
   }
 `;
 
