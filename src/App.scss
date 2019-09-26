@@ -177,13 +177,28 @@
 
   .orders {
     width: 80%;
-    height: 100vh;
   }
   .sideBar {
     min-width: 300px;
     width: 20%;
     background: #fff;
     border-radius: 10px;
-    border: 4px dashed $border;
+    border-top: 4px dashed $border;
+    border-left: 4px dashed $border;
+    border-right: 4px dashed $border;
+  }
+}
+
+.top {
+  border-bottom: 4px dashed $border;
+  padding-bottom: 20px;
+}
+.farms {
+  &:first-child {
+    border-top: 4px dashed $border;
+    color: blue;
+  }
+  .farm {
+    border-bottom: 4px dashed $border;
   }
 }

@@ -3,7 +3,7 @@ import { withFormik, Form, Field } from "formik"; //withFormik is used to create
 import * as Yup from "yup";
 import "../App.scss";
 import styled from "styled-components";
-import { axiosWithAuth } from "../utils/axiosWithAuth"
+import { axiosWithAuth } from "../utils/axiosWithAuth";
 
 const SignUp = props => {
   const { values, errors, touched, isSubmitting, setFieldValue } = props;
@@ -109,15 +109,15 @@ const FormikSignUp = withFormik({
 
     let API;
     values.type === "Customer"
-    ? (API = "https://farm-fresh-bw.herokuapp.com/api/auth/shop/register")
-    : (API = "https://farm-fresh-bw.herokuapp.com/api/auth/farmer/register");
+      ? (API = "https://farm-fresh-bw.herokuapp.com/api/auth/shop/register")
+      : (API = "https://farm-fresh-bw.herokuapp.com/api/auth/farmer/register");
 
     axiosWithAuth()
       .post(API, testObj)
       .then(res => {
         setStatus(res.data);
-        console.log(testObj);
-        console.log(res.data);
+        // console.log(testObj);
+        // console.log(res.data);
         resetForm();
       })
 

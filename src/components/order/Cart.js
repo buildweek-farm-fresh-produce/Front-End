@@ -3,7 +3,7 @@ import "../../App.scss";
 import { connect } from "react-redux";
 
 const Order = props => {
-  console.log("Orders", props.orders);
+  // console.log("Cart", props.orders);
   let returnEmpty = false;
   if (props.cart.length === 0) {
     returnEmpty = true;

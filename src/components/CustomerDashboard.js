@@ -3,7 +3,7 @@ import "../App.scss";
 import { connect } from "react-redux";
 import Order from "./order/Order";
 import Cart from "./order/Cart";
-import Suggest from "./order/Suggest";
+import LocalFarms from "./order/LocalFarms";
 
 function CustomerDashboard() {
   useEffect(props => {
@@ -34,8 +34,8 @@ function CustomerDashboard() {
           />
         </div>
         <div className="sideBar">
-          <h3>Local Suggestions</h3>
-          <Suggest />
+          <h3 className="top">Local Farms</h3>
+          <LocalFarms />
         </div>
       </div>
     </div>

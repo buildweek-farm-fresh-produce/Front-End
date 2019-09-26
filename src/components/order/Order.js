@@ -3,12 +3,12 @@ import "../../App.scss";
 import { connect } from "react-redux";
 
 const Order = props => {
-  console.log("Orders", props.orders);
+  // console.log("Orders", props.orders);
   let returnEmpty = false;
   if (props.orders.length === 0) {
     returnEmpty = true;
   }
-  console.log(returnEmpty);
+  // console.log(returnEmpty);
   return (
     <div className="orderCard">
       {returnEmpty && <h3>No Previous Orders</h3>}

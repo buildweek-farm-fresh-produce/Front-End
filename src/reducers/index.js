@@ -6,7 +6,8 @@ import {
   FARMER_CHANGE,
   LOG_OUT,
   GET_USER,
-  ERROR_USER
+  ERROR_USER,
+  GET_FARM
 } from "../actions";
 // import { combineReducers } from "redux";
 // import { connectRouter } from "connected-react-router";
@@ -36,7 +37,8 @@ const initialState = {
     username: ""
   },
   isFarmer: false,
-  cart: []
+  cart: [],
+  localFarms: []
 };
 
 export const reducer = (state = initialState, action) => {
@@ -102,8 +104,14 @@ export const reducer = (state = initialState, action) => {
         }
       };
     case ERROR_USER:
-      console.log("GOTUSER-ERROR");
+      // console.log("GOTUSER-ERROR");
       return state;
+    case GET_FARM:
+      // console.log("GOTFARMS", action.payload);
+      return {
+        ...state,
+        localFarms: action.payload
+      };
     default:
       return state;
   }
