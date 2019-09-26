@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { axiosWithAuth } from "../../utils/axiosWithAuth";
 import ShopCard from "./ShopCard";
+import styled from "styled-components";
 
 export default function ShopCategory(props) {
   const [shopState, setShopState] = useState([]);
@@ -19,12 +20,16 @@ export default function ShopCategory(props) {
   }, [props.match.params.id]);
   return (
     <div>
-      <h2>Shop List</h2>
-      <div>
+      <h2>Shop Category Items</h2>
+      <ShopState2>
         {shopState.map(items => (
           <ShopCard key={items.id} items={items} />
         ))}
-      </div>
+      </ShopState2>
     </div>
   );
 }
+
+const ShopState2 = styled.div`
+  border: 2px solid red;
+`;
