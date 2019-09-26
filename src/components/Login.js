@@ -14,7 +14,16 @@ const Login = props => {
 
   const submitLogin = e => {
     e.preventDefault();
-    props.login(props);
+    const pushURL = props.farmer ? "/inventory" : "/dashboard";
+
+    props
+      .login(props)
+      .then(res => {
+        if (res) props.history.push(pushURL);
+      })
+      .catch(err => {
+        console.log(err);
+      });
   };
 
   const farmerRadio = e => {

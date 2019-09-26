@@ -1,8 +1,9 @@
 import React, { useEffect } from "react";
 import "../App.scss";
 import { connect } from "react-redux";
-// import { axiosWithAuth } from "../utils/axiosWithAuth";
 import Order from "./order/Order";
+import Cart from "./order/Cart";
+import Suggest from "./order/Suggest";
 
 function CustomerDashboard() {
   useEffect(props => {
@@ -19,16 +20,23 @@ function CustomerDashboard() {
 
   return (
     <div>
-      <h2>Welcome to the Customer Dashboard!</h2>
-      <div className="orders">
-        <h3>Current Orders</h3>
-        <Order
-          orders={orders.filter(item => {
-            if (item.consumer_id === 1) {
-              return item;
-            }
-          })}
-        />
+      <div className="container">
+        <div className="orders">
+          <h3>Shopping Cart</h3>
+          <Cart />
+          <h3>Past Orders</h3>
+          <Order
+            orders={orders.filter(item => {
+              if (item.consumer_id === localStorage.getItem("id")) {
+                return item;
+              }
+            })}
+          />
+        </div>
+        <div className="sideBar">
+          <h3>Local Suggestions</h3>
+          <Suggest />
+        </div>
       </div>
     </div>
   );
@@ -48,14 +56,14 @@ const orders = [
     shipping_address: "123 Main St.",
     purchase_date: "2019-08-06",
     delivered: 0,
-    consumer_id: 1
+    consumer_id: 4
   },
   {
     id: "supersecret12",
     shipping_address: "223 Beach St.",
     purchase_date: "2019-03-04",
     delivered: 1,
-    consumer_id: 1
+    consumer_id: 20
   },
   {
     id: "supersecret123",
@@ -76,14 +84,14 @@ const orders = [
     shipping_address: "223 River Rd.",
     purchase_date: "2018-07-04",
     delivered: 1,
-    consumer_id: 2
+    consumer_id: 20
   },
   {
     id: "supersecret123456",
     shipping_address: "323 Main St.",
     purchase_date: "2019-08-03",
     delivered: 0,
-    consumer_id: 3
+    consumer_id: 20
   }
 ];
 

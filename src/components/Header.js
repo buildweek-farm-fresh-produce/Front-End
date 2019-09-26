@@ -15,7 +15,7 @@ function Header(props) {
     localStorage.setItem("farmer", "");
     props.logoutAC();
   };
-  console.log(props);
+  console.log("HEADER", props);
   return (
     <div className="header">
       <div className="title">
@@ -39,7 +39,11 @@ function Header(props) {
         )}
 
         {localStorage.getItem("token") !== "" &&
+<<<<<<< HEAD
           (props.isFarmer ? (
+=======
+          (localStorage.getItem("farmer") === "true" ? (
+>>>>>>> 50feb57230ae217c9652ac18bbe2c38cefcff14c
             <Link to="/inventory" className="link">
               Stock
             </Link>

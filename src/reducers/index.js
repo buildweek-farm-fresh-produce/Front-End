@@ -35,7 +35,8 @@ const initialState = {
     state_id: "",
     username: ""
   },
-  isFarmer: false
+  isFarmer: false,
+  cart: []
 };
 
 export const reducer = (state = initialState, action) => {

@@ -2,7 +2,9 @@
 .App {
   text-align: center;
   background-image: url(./img/background2.png);
+  background-repeat: repeat;
   min-height: 800px;
+  height: 100vh;
   padding-top: 10px;
 }
 
@@ -92,16 +94,26 @@
   }
 }
 
-.orderPrev {
-  border: 1px solid $border;
+.orderCard {
   background-color: white;
+  border: 4px solid $border;
+  border-radius: 10px;
   width: 400px;
   margin: 10px auto;
-  .list {
-    display: flex;
-    justify-content: space-between;
+
+  .orderPrev {
+    .list {
+      display: flex;
+      justify-content: space-between;
+      // line-height: 5px;
+    }
+  }
+  .cartButton {
+    margin: 0px auto;
+    width: 250px;
   }
 }
+
 .orderDetail {
   border: 1px solid $border;
   background-color: white;
@@ -128,8 +140,6 @@
   margin-top: 20px;
 }
 
-
-
 .farmer-card-wrapper {
   margin-top: 36px;
   display: flex;
@@ -143,6 +153,7 @@
   margin-left: 2rem;
   color: #778855
 
+   
   }
 
   .cards-div {
@@ -160,9 +171,25 @@
   }
 
   .produce-img {
-  width: 100%;
-  border: 1px solid lightgray;
-  border-radius: .2rem;
+    width: 100%;
+    border: 1px solid lightgray;
+    border-radius: 0.2rem;
   }
 }
 
+.container {
+  display: flex;
+  justify-content: space-between;
+
+  .orders {
+    width: 80%;
+    height: 100vh;
+  }
+  .sideBar {
+    min-width: 300px;
+    width: 20%;
+    background: #fff;
+    border-radius: 10px;
+    border: 4px dashed $border;
+  }
+}
