@@ -7,6 +7,8 @@ import LocalFarms from "./order/LocalFarms";
 import LocalProduce from "./order/LocalProduce";
 
 function CustomerDashboard() {
+  const [hideFarm, setHideFarm] = useState(false);
+
   useEffect(props => {
     // Should be sent to an AC
     // axiosWithAuth()
@@ -36,12 +38,15 @@ function CustomerDashboard() {
         </div>
         <div className="sideBar">
           <div className="top">
-            <h3>Local Farms</h3>
+            <h3>{hideFarm ? "Local Produce" : "Local Farms"}</h3>
+            <p onClick={() => setHideFarm(!hideFarm)} className="hideToggle">
+              {hideFarm ? "Show Farms" : "Show Produce"}
+            </p>
           </div>
-          {/* <div className="showFarm">
+          <div className={`showFarm ${hideFarm ? "hidden" : null}`}>
             <LocalFarms />
-          </div> */}
-          <div className="showProduce">
+          </div>
+          <div className={`showProduce ${hideFarm ? null : "hidden"}`}>
             <LocalProduce />
           </div>
         </div>

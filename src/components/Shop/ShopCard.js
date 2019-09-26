@@ -1,9 +1,17 @@
 import React from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import "../../../src/App.scss";
+import { addToCart } from "../../actions";
+import { connect } from "react-redux";
 
-export default function ShopCard(props) {
+function ShopCard(props) {
+  const addToCartAC = () => {
+    props.addToCart(props.items);
+    console.log(props);
+    props.history.push("/dashboard");
+  };
+
   return (
     <ShopCardDiv>
       <h2>{props.items.name}</h2>
@@ -15,12 +23,21 @@ export default function ShopCard(props) {
         <Link to="/inventory" className="link">
           <h5>Farm Name: {props.items.farm_name}</h5>
         </Link>
-
-        <SubmitButton>Add to cart</SubmitButton>
+        <SubmitButton onClick={() => addToCartAC()}>Add to cart</SubmitButton>
       </div>
     </ShopCardDiv>
   );
 }
+const mapStateToProps = state => {
+  return {
+    user: state.user
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  { addToCart }
+)(withRouter(ShopCard));
 
 //Styled Components
 const ShopCardDiv = styled.div`

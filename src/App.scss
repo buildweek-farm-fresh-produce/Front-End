@@ -209,7 +209,15 @@
 }
 .cartButton {
   font-size: 1rem;
-  width: 50px;
+  width: 115px !important;
   line-height: 20px;
   height: 20px;
+}
+.hidden {
+  display: none;
+}
+
+p.hideToggle {
+  font-size: 1rem;
+  color: red;
 }

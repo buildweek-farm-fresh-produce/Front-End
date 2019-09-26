@@ -14,6 +14,15 @@ export const GET_PRODUCE = "GET_PRODUCE";
 export const ERROR_PRODUCE = "ERROR_PRODUCE";
 export const ADD_TO_CART = "ADD_TO_CART";
 export const HANDLE_QUANTITY = "HANDLE_QUANTITY";
+export const DELETE_CART_ITEM = "DELETE_CART_ITEM";
+
+export const deleteCartItem = i => dispatch => {
+  // console.log("Delete", i);
+  dispatch({
+    type: DELETE_CART_ITEM,
+    payload: i
+  });
+};
 
 export const handleQuantity = e => dispatch => {
   // console.log("Quantity", e.target.name);
@@ -23,11 +32,25 @@ export const handleQuantity = e => dispatch => {
   });
 };
 
+const categoryTable = {};
+const categoryLookup = lookup => {};
 export const addToCart = i => dispatch => {
   console.log("CARTADD", i);
+  let itemToAdd = {};
+  if (i.name !== undefined) {
+    itemToAdd.produce_name = i.name;
+    itemToAdd.quantity = i.quantity;
+    itemToAdd.unit_price = i.price;
+    itemToAdd.seller = i.farm_name;
+  } else {
+    itemToAdd = i;
+    delete itemToAdd.city_name;
+    delete itemToAdd.produce_category;
+    delete itemToAdd.city_id;
+  }
   dispatch({
     type: ADD_TO_CART,
-    payload: i
+    payload: itemToAdd
   });
 };
 
@@ -35,7 +58,7 @@ export const getProduce = state => dispatch => {
   axiosWithAuth()
     .get("/api/consumers/shop/2")
     .then(res => {
-      console.log("PRODUCEDATA", res.data);
+      // console.log("PRODUCEDATA", res.data);
       dispatch({
         type: GET_PRODUCE,
         payload: res.data
@@ -52,7 +75,7 @@ export const getFarms = state => dispatch => {
   axiosWithAuth()
     .get("/api/consumers/farms/2/2")
     .then(res => {
-      console.log("FARMDATA-APP", res.data);
+      // console.log("FARMDATA-APP", res.data);
       dispatch({
         type: GET_FARM,
         payload: res.data

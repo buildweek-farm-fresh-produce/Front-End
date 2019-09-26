@@ -6,7 +6,7 @@ import Farm from "./Farm";
 const LocalFarms = props => {
   useEffect(() => {
     props.getFarms();
-  }, [props.localFarms]);
+  }, []);
 
   console.log("Farms:", props.localFarms);
   return (
