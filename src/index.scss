@@ -6,6 +6,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: 62.5%;
+  height: 100vh;
 }
 
 code {
@@ -26,11 +27,15 @@ h2 {
 h3 {
   font-family: "Playfair Display", serif;
   font-size: 1.6rem;
+  margin: 0px;
+  padding: 4px;
 }
 
 p {
   font-family: "Big Shoulders Text", cursive;
   font-size: 1.4rem;
+  margin: 0px;
+  padding: 4px;
 }
 
 a {

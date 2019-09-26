@@ -7,7 +7,9 @@ import {
   LOG_OUT,
   GET_USER,
   ERROR_USER,
-  GET_FARM
+  GET_FARM,
+  GET_PRODUCE,
+  ADD_TO_CART
 } from "../actions";
 // import { combineReducers } from "redux";
 // import { connectRouter } from "connected-react-router";
@@ -38,7 +40,8 @@ const initialState = {
   },
   isFarmer: false,
   cart: [],
-  localFarms: []
+  localFarms: [],
+  localProduce: []
 };
 
 export const reducer = (state = initialState, action) => {
@@ -112,6 +115,14 @@ export const reducer = (state = initialState, action) => {
         ...state,
         localFarms: action.payload
       };
+    case GET_PRODUCE:
+      console.log("GOTPROdUCTS", action.payload);
+      return {
+        ...state,
+        localProduce: action.payload.items
+      };
+    case ADD_TO_CART:
+      return { ...state, cart: [...state.cart, action.payload] };
     default:
       return state;
   }

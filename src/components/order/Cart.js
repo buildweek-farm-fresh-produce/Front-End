@@ -3,7 +3,7 @@ import "../../App.scss";
 import { connect } from "react-redux";
 
 const Order = props => {
-  // console.log("Cart", props.orders);
+  console.log("Cart", props.orders);
   let returnEmpty = false;
   if (props.cart.length === 0) {
     returnEmpty = true;
@@ -15,14 +15,14 @@ const Order = props => {
         {props.cart.map(item => {
           return (
             <div className="itemList" key={item.id}>
-              <p>{item.name}</p>
-              <p>{item.quantity}</p>
-              <p>{item.price}</p>
-              <p>{item.category_id}</p>
-              <p>{item.farm_id}</p>
-              <p>{item.farm_name}</p>
-              <div className="button">Edit</div>
-              <div className="button">Delete</div>
+              <h3>{item.produce_name}</h3>
+              <p>{item.quantity} in stock</p>
+              <p>Price: {item.unit_price}</p>
+              <p>Sold By: {item.seller}</p>
+              <div className="buttonBar">
+                <div className="button cartButton">Edit</div>
+                <div className="button cartButton">Delete</div>
+              </div>
             </div>
           );
         })}

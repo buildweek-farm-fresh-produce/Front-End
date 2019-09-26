@@ -10,6 +10,34 @@ export const GET_USER = "GET_USER";
 export const ERROR_USER = "ERROR_USER";
 export const GET_FARM = "GET_FARM";
 export const ERROR_FARM = "ERROR_FARM";
+export const GET_PRODUCE = "GET_PRODUCE";
+export const ERROR_PRODUCE = "ERROR_PRODUCE";
+export const ADD_TO_CART = "ADD_TO_CART";
+
+export const addToCart = i => dispatch => {
+  console.log("CARTADD", i);
+  dispatch({
+    type: ADD_TO_CART,
+    payload: i
+  });
+};
+
+export const getProduce = state => dispatch => {
+  axiosWithAuth()
+    .get("/api/consumers/shop/2")
+    .then(res => {
+      console.log("PRODUCEDATA", res.data);
+      dispatch({
+        type: GET_PRODUCE,
+        payload: res.data
+      });
+      return true;
+    })
+    .catch(err => {
+      console.log(err);
+      return false;
+    });
+};
 
 export const getFarms = state => dispatch => {
   axiosWithAuth()

@@ -189,16 +189,26 @@
   }
 }
 
-.top {
-  border-bottom: 4px dashed $border;
-  padding-bottom: 20px;
-}
 .farms {
   &:first-child {
     border-top: 4px dashed $border;
-    color: blue;
   }
   .farm {
     border-bottom: 4px dashed $border;
   }
+}
+
+.buttonBar {
+  display: flex;
+  justify-content: center;
+}
+.addButton {
+  font-size: 1.2rem;
+  width: 150px;
+  line-height: 23px;
+}
+.cartButton {
+  font-size: 1.2rem;
+  width: 25px;
+  line-height: 23px;
 }
