@@ -1,9 +1,10 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import "../App.scss";
 import { connect } from "react-redux";
 import Order from "./order/Order";
 import Cart from "./order/Cart";
-import Suggest from "./order/Suggest";
+import LocalFarms from "./order/LocalFarms";
+import LocalProduce from "./order/LocalProduce";
 
 function CustomerDashboard() {
   useEffect(props => {
@@ -34,8 +35,15 @@ function CustomerDashboard() {
           />
         </div>
         <div className="sideBar">
-          <h3>Local Suggestions</h3>
-          <Suggest />
+          <div className="top">
+            <h3>Local Farms</h3>
+          </div>
+          {/* <div className="showFarm">
+            <LocalFarms />
+          </div> */}
+          <div className="showProduce">
+            <LocalProduce />
+          </div>
         </div>
       </div>
     </div>

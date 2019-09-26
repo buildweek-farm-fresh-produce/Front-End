@@ -15,7 +15,7 @@ function Header(props) {
     localStorage.setItem("farmer", "");
     props.logoutAC();
   };
-  console.log("HEADER", props);
+  // console.log("HEADER", props);
   return (
     <div className="header">
       <div className="title">

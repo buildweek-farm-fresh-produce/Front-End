@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router";
 
 const OrderDetail = props => {
-  console.log("OrderDeet", props);
+  // console.log("OrderDeet", props);
 
   useEffect(() => {}, []);
 

@@ -110,12 +110,13 @@ const FormikSignUp = withFormik({
     values.type === "Customer"
       ? (API = "https://farm-fresh-bw.herokuapp.com/api/auth/shop/register")
       : (API = "https://farm-fresh-bw.herokuapp.com/api/auth/farmer/register");
+
     axiosWithAuth()
       .post(API, testObj)
       .then(res => {
         setStatus(res.data);
-        console.log(testObj);
-        console.log(res.data);
+        // console.log(testObj);
+        // console.log(res.data);
         resetForm();
       })
       .catch(err => {

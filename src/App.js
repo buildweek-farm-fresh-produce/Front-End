@@ -27,14 +27,14 @@ function App(props) {
 
   const [inventory, setInventory] = useState([]);
   useEffect(() => {
-    axios
+    axiosWithAuth()
       .get(
         `https://farm-fresh-bw.herokuapp.com/api/farmers/produce/${localStorage.getItem(
           "id"
         )}`
       )
       .then(response => {
-        console.log("farmer response:", response.data.current_stock);
+        // console.log("farmer response:", response.data.current_stock);
         setInventory(response.data.current_stock);
       })
       .catch(err => console.log(err));

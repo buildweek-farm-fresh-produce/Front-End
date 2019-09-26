@@ -177,13 +177,39 @@
 
   .orders {
     width: 80%;
-    height: 100vh;
   }
   .sideBar {
     min-width: 300px;
     width: 20%;
     background: #fff;
     border-radius: 10px;
-    border: 4px dashed $border;
+    border-top: 4px dashed $border;
+    border-left: 4px dashed $border;
+    border-right: 4px dashed $border;
   }
+}
+
+.farms {
+  &:first-child {
+    border-top: 4px dashed $border;
+  }
+  .farm {
+    border-bottom: 4px dashed $border;
+  }
+}
+
+.buttonBar {
+  display: flex;
+  justify-content: center;
+}
+.addButton {
+  font-size: 1.2rem;
+  width: 150px;
+  line-height: 23px;
+}
+.cartButton {
+  font-size: 1rem;
+  width: 50px;
+  line-height: 20px;
+  height: 20px;
 }
