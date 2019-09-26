@@ -10,7 +10,8 @@ import {
   GET_FARM,
   GET_PRODUCE,
   ADD_TO_CART,
-  HANDLE_QUANTITY
+  HANDLE_QUANTITY,
+  DELETE_CART_ITEM
 } from "../actions";
 // import { combineReducers } from "redux";
 // import { connectRouter } from "connected-react-router";
@@ -117,7 +118,7 @@ export const reducer = (state = initialState, action) => {
         localFarms: action.payload
       };
     case GET_PRODUCE:
-      console.log("GOTPROdUCTS", action.payload);
+      // console.log("GOTPROdUCTS", action.payload);
       return {
         ...state,
         localProduce: action.payload.items
@@ -136,10 +137,9 @@ export const reducer = (state = initialState, action) => {
       };
     case HANDLE_QUANTITY:
       const newCart = state.cart.map(item => {
-        console.log("compare", item.id, action.payload.name);
+        // console.log("compare", item.id, action.payload.name);
         if (item.id === action.payload.name) {
           item.quantity = action.payload.value;
-          console.log(item);
           return item;
         } else {
           return item;
@@ -149,7 +149,16 @@ export const reducer = (state = initialState, action) => {
         ...state,
         cart: [...newCart]
       };
+    case DELETE_CART_ITEM:
+      let newDelCart = state.cart.filter(item => {
+        console.log("compare", item.id, action.payload);
+        if (item.id !== action.payload) {
+          return item;
+        }
+      });
 
+      console.log("DelCart2", newDelCart);
+      return { ...state, cart: newDelCart };
     default:
       return state;
   }

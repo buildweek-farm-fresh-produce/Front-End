@@ -1,7 +1,7 @@
 import React from "react";
 import "../../App.scss";
 import { connect } from "react-redux";
-import { handleQuantity } from "../../actions";
+import { handleQuantity, deleteCartItem } from "../../actions";
 
 const Order = props => {
   console.log("Cart", props.cart);
@@ -31,7 +31,16 @@ const Order = props => {
                 />
               </p>
               <div className="buttonBar">
-                <div className="button cartButton">Delete</div>
+                <div
+                  onClick={() =>
+                    props.deleteCartItem(
+                      `${item.product.seller}${item.product.produce_name}`
+                    )
+                  }
+                  className="button cartButton"
+                >
+                  Delete
+                </div>
               </div>
             </div>
           );
@@ -54,5 +63,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { handleQuantity }
+  { handleQuantity, deleteCartItem }
 )(Order);
