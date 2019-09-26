@@ -115,21 +115,21 @@ const RadioButtons = styled.div`
     }
   }
 `;
-const SubmitButton = styled.div`
-  height: 55px;
-  width: 125px;
-  background: rgba(153, 170, 119, 1);
-  color: white;
-  border-radius: 25px;
-  line-height: 55px;
-  font-size: 1.8rem;
-  border: 3px solid #656f7c;
-  border-radius: 25px;
-  box-shadow: 2px 2px 3px #000;
-  font-family: "Playfair Display", serif;
-  margin-left: 246px;
-  margin-bottom: 10px;
-`;
+// const SubmitButton = styled.div`
+//   height: 55px;
+//   width: 125px;
+//   background: rgba(153, 170, 119, 1);
+//   color: white;
+//   border-radius: 25px;
+//   line-height: 55px;
+//   font-size: 1.8rem;
+//   border: 3px solid #656f7c;
+//   border-radius: 25px;
+//   box-shadow: 2px 2px 3px #000;
+//   font-family: "Playfair Display", serif;
+//   margin-left: 246px;
+//   margin-bottom: 10px;
+// `;
 
 const SignUp = props => {
   const { values, errors, touched, isSubmitting, setFieldValue } = props;
@@ -158,18 +158,18 @@ const SignUp = props => {
             <Field type="password" name="password" placeholder="Password" />
           </label>
         </PasswordDiv>
-        {/* <StateDiv>
+        <StateDiv>
           <label>
             <h2>State:</h2>
-            <Field type="state" name="state" placeholder="State" />
+            <Field type="state_id" name="state_id" placeholder="State" />
           </label>
         </StateDiv>
         <AddressDiv>
           <label>
             <h2>Address:</h2>
-            <Field type="address" name="address" placeholder="Address" />
+            <Field type="city_id" name="city_id" placeholder="City" />
           </label>
-        </AddressDiv> */}
+        </AddressDiv>
         <RadioButtons>
           <div>
             <label>
@@ -196,21 +196,21 @@ const SignUp = props => {
             />
           </div>
         </RadioButtons>
-        <SubmitButton>
-          <button disabled={isSubmitting}>Submit</button>
-        </SubmitButton>
+        <div>
+          <button className="loginButton" disabled={isSubmitting}>Submit</button>
+        </div>
       </Form>
     </SyledMainDiv>
   );
 };
 const FormikSignUp = withFormik({
-  mapPropsToValues({ username, email, password }) {
+  mapPropsToValues({ username, email, password, city_id, state_id }) {
     return {
       username: username || "",
       email: email || "",
       password: password || "",
-      city_id: "1",
-      state_id: "1"
+      city_id: city_id || "",
+      state_id: state_id || "",
     };
   },
   validationSchema: Yup.object().shape({
@@ -223,6 +223,7 @@ const FormikSignUp = withFormik({
       .required("Password is required")
   }),
   handleSubmit(values, { setStatus, resetForm, setSubmitting, setErrors }) {
+    debugger;
     let testObj = {
       username: values.username || "",
       email: values.email || "",
@@ -242,6 +243,7 @@ let API;
         setStatus(res.data);
         console.log(testObj);
         console.log(res.data);
+        resetForm()
       })
 
       .catch(err => {

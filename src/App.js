@@ -12,6 +12,7 @@ import CustomerDashboard from "./components/CustomerDashboard.js";
 import OrderDetail from "./components/order/OrderDetail";
 import FormikSignUp from "./components/Signup";
 import { ShopList } from "./components/Shop/ShopList";
+import ShopCard from "./components/Shop/ShopCategory";
 import InventoryCard from "./components/InventoryCard";
 import Inventory from "./components/Inventory";
 import { getUserData } from "./actions";
@@ -51,6 +52,11 @@ function App(props) {
           <PrivateRoute exact path="/dashboard" component={CustomerDashboard} />
           <PrivateRoute exact path="/dashboard/:id" component={OrderDetail} />
           <PrivateRoute exact path="/shop" component={ShopList} />
+          <Route
+            exact
+            path="/shop/:id"
+            render={props => <ShopCard {...props} />}
+          />
           <Route
             exact
             path="/inventory"
