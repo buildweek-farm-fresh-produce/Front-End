@@ -115,21 +115,22 @@ const RadioButtons = styled.div`
     }
   }
 `;
-// const SubmitButton = styled.div`
-//   height: 55px;
-//   width: 125px;
-//   background: rgba(153, 170, 119, 1);
-//   color: white;
-//   border-radius: 25px;
-//   line-height: 55px;
-//   font-size: 1.8rem;
-//   border: 3px solid #656f7c;
-//   border-radius: 25px;
-//   box-shadow: 2px 2px 3px #000;
-//   font-family: "Playfair Display", serif;
-//   margin-left: 246px;
-//   margin-bottom: 10px;
-// `;
+const SubmitButton = styled.button`
+  padding: 10px;
+  height: 55px;
+  width: 125px;
+  background: rgba(153, 170, 119, 1);
+  color: white;
+  border-radius: 25px;
+  line-height: 20px;
+  font-size: 1.8rem;
+  border: 3px solid #656f7c;
+  border-radius: 25px;
+  box-shadow: 2px 2px 3px #000;
+  font-family: "Playfair Display", serif;
+  margin-left: 0px;
+  margin-bottom: 20px;
+`;
 
 const SignUp = props => {
   const { values, errors, touched, isSubmitting, setFieldValue } = props;
@@ -197,7 +198,9 @@ const SignUp = props => {
           </div>
         </RadioButtons>
         <div>
-          <button className="loginButton" disabled={isSubmitting}>Submit</button>
+          <SubmitButton className="loginButton" disabled={isSubmitting}>
+            Submit
+          </SubmitButton>
         </div>
       </Form>
     </SyledMainDiv>
@@ -210,7 +213,7 @@ const FormikSignUp = withFormik({
       email: email || "",
       password: password || "",
       city_id: city_id || "",
-      state_id: state_id || "",
+      state_id: state_id || ""
     };
   },
   validationSchema: Yup.object().shape({
@@ -223,7 +226,6 @@ const FormikSignUp = withFormik({
       .required("Password is required")
   }),
   handleSubmit(values, { setStatus, resetForm, setSubmitting, setErrors }) {
-    debugger;
     let testObj = {
       username: values.username || "",
       email: values.email || "",
@@ -231,11 +233,11 @@ const FormikSignUp = withFormik({
       city_id: "1",
       state_id: "1"
     };
-      
-let API;
+
+    let API;
     values.type === "Customer"
-      ? ( API = "https://farm-fresh-bw.herokuapp.com/api/auth/farmer/register")
-      : ( API = "https://farm-fresh-bw.herokuapp.com/api/auth/shop/register")
+      ? (API = "https://farm-fresh-bw.herokuapp.com/api/auth/farmer/register")
+      : (API = "https://farm-fresh-bw.herokuapp.com/api/auth/shop/register");
 
     axios
       .post(API, testObj)
@@ -243,7 +245,7 @@ let API;
         setStatus(res.data);
         console.log(testObj);
         console.log(res.data);
-        resetForm()
+        resetForm();
       })
 
       .catch(err => {
