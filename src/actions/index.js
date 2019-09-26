@@ -32,11 +32,25 @@ export const handleQuantity = e => dispatch => {
   });
 };
 
+const categoryTable = {};
+const categoryLookup = lookup => {};
 export const addToCart = i => dispatch => {
-  // console.log("CARTADD", i);
+  console.log("CARTADD", i);
+  let itemToAdd = {};
+  if (i.name !== undefined) {
+    itemToAdd.produce_name = i.name;
+    itemToAdd.quantity = i.quantity;
+    itemToAdd.unit_price = i.price;
+    itemToAdd.seller = i.farm_name;
+  } else {
+    itemToAdd = i;
+    delete itemToAdd.city_name;
+    delete itemToAdd.produce_category;
+    delete itemToAdd.city_id;
+  }
   dispatch({
     type: ADD_TO_CART,
-    payload: i
+    payload: itemToAdd
   });
 };
 
