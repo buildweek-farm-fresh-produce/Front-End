@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 
 const Farm = props => {
   return (
-    <div className="farm" key={props.item.seller + props.item.produce_name}>
+    <div className="farm">
       <h3>{props.item.produce_name}</h3>
       <p>Price: {props.item.unit_price}</p>
       <p>{props.item.quantity} in stock</p>

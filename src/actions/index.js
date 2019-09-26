@@ -13,6 +13,15 @@ export const ERROR_FARM = "ERROR_FARM";
 export const GET_PRODUCE = "GET_PRODUCE";
 export const ERROR_PRODUCE = "ERROR_PRODUCE";
 export const ADD_TO_CART = "ADD_TO_CART";
+export const HANDLE_QUANTITY = "HANDLE_QUANTITY";
+
+export const handleQuantity = e => dispatch => {
+  // console.log("Quantity", e.target.name);
+  dispatch({
+    type: HANDLE_QUANTITY,
+    payload: e.target
+  });
+};
 
 export const addToCart = i => dispatch => {
   console.log("CARTADD", i);

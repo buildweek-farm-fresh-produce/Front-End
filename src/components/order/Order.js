@@ -14,7 +14,7 @@ const Order = props => {
       {returnEmpty && <h3>No Previous Orders</h3>}
       {props.orders.map(item => {
         return (
-          <div className="orderPrev">
+          <div className="orderPrev" key={item.id}>
             <a href="#" className="list">
               {/* {`/dashboard/${item.id}`} */}
               <span>{item.purchase_date}</span>

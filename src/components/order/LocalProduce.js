@@ -13,7 +13,7 @@ const LocalProduce = props => {
     <div className="farms">
       {props.localProduce.map(item => {
         return (
-          <div className="productList">
+          <div className="productList" key={item.seller + item.produce_name}>
             <Product item={item} />
           </div>
         );

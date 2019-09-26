@@ -9,7 +9,8 @@ import {
   ERROR_USER,
   GET_FARM,
   GET_PRODUCE,
-  ADD_TO_CART
+  ADD_TO_CART,
+  HANDLE_QUANTITY
 } from "../actions";
 // import { combineReducers } from "redux";
 // import { connectRouter } from "connected-react-router";
@@ -122,7 +123,33 @@ export const reducer = (state = initialState, action) => {
         localProduce: action.payload.items
       };
     case ADD_TO_CART:
-      return { ...state, cart: [...state.cart, action.payload] };
+      return {
+        ...state,
+        cart: [
+          ...state.cart,
+          {
+            id: action.payload.seller + action.payload.produce_name,
+            quantity: 1,
+            product: action.payload
+          }
+        ]
+      };
+    case HANDLE_QUANTITY:
+      const newCart = state.cart.map(item => {
+        console.log("compare", item.id, action.payload.name);
+        if (item.id === action.payload.name) {
+          item.quantity = action.payload.value;
+          console.log(item);
+          return item;
+        } else {
+          return item;
+        }
+      });
+      return {
+        ...state,
+        cart: [...newCart]
+      };
+
     default:
       return state;
   }
