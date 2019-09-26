@@ -48,6 +48,7 @@ function ShopDetails({ items }) {
   );
 }
 
+//Styled Components
 const ShopState = styled.div`
   display: flex;
   flex-wrap: wrap;
@@ -55,7 +56,6 @@ const ShopState = styled.div`
   width: 600px;
   margin-left: 378px;
 `;
-
 const Header2Style = styled.h2`
   margin: 10px auto;
   border: 10px solid tomato;
@@ -77,7 +77,6 @@ const Header2Style = styled.h2`
     transition-duration: 0.2s;
   }
 `;
-
 const Header1Style = styled.h2`
   margin: 10px auto;
   border: 10px solid tomato;
