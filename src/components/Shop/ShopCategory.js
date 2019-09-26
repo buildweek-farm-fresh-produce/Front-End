@@ -19,17 +19,28 @@ export default function ShopCategory(props) {
       });
   }, [props.match.params.id]);
   return (
-    <div>
+    <CategoryItems>
       <h2>Shop Category Items</h2>
       <ShopState2>
         {shopState.map(items => (
           <ShopCard key={items.id} items={items} />
         ))}
       </ShopState2>
-    </div>
+    </CategoryItems>
   );
 }
 
+// Styled Components
+const CategoryItems = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
 const ShopState2 = styled.div`
-  border: 2px solid red;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  max-width: 100%;
+  width: 900px;
+  justify-content: space-around;
 `;

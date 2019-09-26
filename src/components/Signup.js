@@ -7,7 +7,6 @@ import { axiosWithAuth } from "../utils/axiosWithAuth";
 
 const SignUp = props => {
   const { values, errors, touched, isSubmitting, setFieldValue } = props;
-
   return (
     <SyledMainDiv>
       <Form>
@@ -79,6 +78,7 @@ const SignUp = props => {
     </SyledMainDiv>
   );
 };
+
 const FormikSignUp = withFormik({
   mapPropsToValues({ username, email, password, city_id, state_id }) {
     return {
@@ -106,7 +106,6 @@ const FormikSignUp = withFormik({
       city_id: "1",
       state_id: "1"
     };
-
     let API;
     values.type === "Customer"
       ? (API = "https://farm-fresh-bw.herokuapp.com/api/auth/shop/register")
@@ -120,7 +119,6 @@ const FormikSignUp = withFormik({
         // console.log(res.data);
         resetForm();
       })
-
       .catch(err => {
         console.log(testObj);
         console.log(err);
@@ -128,7 +126,7 @@ const FormikSignUp = withFormik({
   }
 })(SignUp);
 
-//styled componets
+//Styled Components
 const SyledMainDiv = styled.div`
   margin: 10px auto;
   border: 5px solid #a4a37a;
