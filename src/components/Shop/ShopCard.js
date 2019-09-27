@@ -77,7 +77,6 @@ const SubmitButton = styled.button`
   border-radius: 25px;
   line-height: 20px;
   font-size: 1.2rem;
-  border: 3px solid #656f7c;
   box-shadow: 2px 2px 3px #000;
   font-family: "Playfair Display", serif;
   margin-left: 0px;

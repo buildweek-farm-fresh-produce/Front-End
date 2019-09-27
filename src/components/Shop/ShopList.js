@@ -70,7 +70,7 @@ const Header2Style = styled.h2`
     font-size: 1.7rem;
   }
   :hover {
-    background-color: #fe0760;
+    background-color: lightgrey;
     color: white;
     border: solid #fe0760 4px;
     transform: translate(0px, -1px);
