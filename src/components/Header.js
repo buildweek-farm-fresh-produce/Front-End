@@ -16,7 +16,7 @@ function Header(props) {
     props.logoutAC();
   };
   // console.log("HEADER", props);
-  console.log(localStorage.getItem("farmer").toString());
+  // console.log(localStorage.getItem("farmer").toString());
   return (
     <div className="header">
       <div className="title">
